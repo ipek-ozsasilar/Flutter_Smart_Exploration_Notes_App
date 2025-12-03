@@ -1,0 +1,6 @@
+integrations:
+  flutter_svg: true
+line_length: 100
+outputs:
+  class_name: Assets
+  package_parameter_enabled: false
