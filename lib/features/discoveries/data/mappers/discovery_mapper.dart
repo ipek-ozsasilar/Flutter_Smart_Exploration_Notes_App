@@ -1,0 +1,1 @@
+//DB’den gelen modeli entity’ye çevirirsin, entity’yi kaydetmek için modele çevirirsin.

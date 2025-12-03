@@ -71,6 +71,8 @@ dependencies:
   google_mlkit_object_detection: ^0.15.0
   # GetX state management
   get: ^4.6.6
+  # 3D cube animations
+  cubixd: ^0.1.1
 
 dependency_overrides:
   # Force a compatible Firebase core line for all Firebase packages
