@@ -1,0 +1,207 @@
+env:
+  FLUTTER_VERSION: stable
+  DESCRIPTION: "Bootstrap Proje Adimlari"
+  ANDROID_LANG: kotlin
+  IOS_LANG: swift
+
+scripts:
+  # 0) Hepsini sırayla çalıştıran ana komut
+  # CMD/Powershell'de tek satırda && ile zincirliyoruz
+  bootstrap:
+    $description: "Projeyi baslat + tum kurulumlari sirayla yap"
+    $script: rps pin_flutter && rps add_dependencies && rps write_files && rps create_structure && rps gen_flutter && echo "Bootstrap tamamlandi"
+
+  # 1) Sidekick/FVM ile Flutter versiyon sabitle
+  pin_flutter:
+    $description: "Sidekick ile Flutter surumunu sabitle (fallback: fvm)"
+    $script: |
+      echo "Flutter ${FLUTTER_VERSION} sabitleniyor (Sidekick/FVM)"
+      dart pub global activate sidekick || true
+      sidekick use ${FLUTTER_VERSION} || true
+      dart pub global activate fvm || true
+      fvm use ${FLUTTER_VERSION} --force || true
+
+  # 2–3) Dependencies + dev_dependencies
+  add_dependencies:
+    $description: "Dependencies ve dev_dependencies ekle"
+    $script: |
+      echo "Paketler yukleniyor..."
+      flutter pub add get_it
+      flutter pub add json_annotation
+      flutter pub add equatable
+      flutter pub add kartal
+      flutter pub add responsive_framework
+      flutter pub add envied
+      flutter pub add logger
+      flutter pub add firebase_core
+      flutter pub add cloud_firestore
+      flutter pub add firebase_ui_auth
+      flutter pub add firebase_auth
+      flutter pub add firebase_storage
+      flutter pub add --dev build_runner json_serializable
+      flutter pub add --dev envied_generator
+      flutter pub add --dev flutter_lints very_good_analysis flutter_gen_runner
+      flutter pub get
+      echo "Paketler eklendi."
+
+  # 4,6,7,8) analysis_options.yaml, build.yaml, flutter_gen.yaml, .env, .env.example, .gitignore
+  write_files:
+    $description: "Konfigurasyon ve ornek dosyalari olustur"
+    $script: |
+      cat > analysis_options.yaml <<'EOF'
+      include: package:very_good_analysis/analysis_options.yaml
+      linter:
+        rules:
+          prefer_final_locals: true
+          prefer_const_constructors: true
+          avoid_redundant_argument_values: true
+      EOF
+
+      cat > build.yaml <<'EOF'
+      targets:
+        $default:
+          builders:
+            json_serializable:
+              generate_for:
+                - lib/models/**_model.dart
+      EOF
+
+      cat > flutter_gen.yaml <<'EOF'
+      integrations:
+        flutter_svg: true
+      line_length: 100
+      outputs:
+        class_name: Assets
+        package_parameter_enabled: false
+      EOF
+
+      cat > .env <<'EOF'
+      API_BASE_URL=
+      API_KEY=
+      SENTRY_DSN=
+      CRASHLYTICS_ENABLED=true
+      EOF
+
+      cat > .env.example <<'EOF'
+      API_BASE_URL=https://api.example.com
+      API_KEY=replace_me
+      SENTRY_DSN=
+      CRASHLYTICS_ENABLED=true
+      EOF
+
+      echo "" >> .gitignore
+      echo "# Env files" >> .gitignore
+      echo ".env" >> .gitignore
+      echo ".env.*" >> .gitignore
+
+  # 9,10 + klasör yapısı, envied env.dart, main.dart
+  create_structure:
+    $description: "Klasor yapisini olustur"
+    $script: |
+      mkdir -p lib/{features,models,constants,enums,service_locator,provider,view_model,utils,widgets}
+      mkdir -p assets/{images,icons,colors,fonts}
+      mkdir -p gen
+
+      cat > lib/service_locator/service_locator.dart <<'EOF'
+      import 'package:get_it/get_it.dart';
+      final sl = GetIt.instance;
+      Future<void> setupServiceLocator() async {}
+      EOF
+
+      cat > lib/main.dart <<'EOF'
+      import 'package:flutter/material.dart';
+      import 'package:responsive_framework/responsive_framework.dart';
+      import 'service_locator/service_locator.dart';
+
+      Future<void> main() async {
+        WidgetsFlutterBinding.ensureInitialized();
+        await setupServiceLocator();
+        runApp(const MyApp());
+      }
+
+      class MyApp extends StatelessWidget {
+        const MyApp({super.key});
+
+        @override
+        Widget build(BuildContext context) {
+          return MaterialApp(
+            builder: (context, child) => ResponsiveBreakpoints.builder(
+              child: child!,
+              breakpoints: const [
+                Breakpoint(start: 0, end: 450, name: MOBILE),
+                Breakpoint(start: 451, end: 800, name: TABLET),
+                Breakpoint(start: 801, end: 1200, name: DESKTOP),
+                Breakpoint(start: 1201, end: double.infinity, name: '4K'),
+              ],
+            ),
+            home: const Scaffold(
+              body: Center(child: Text('Bootstrap OK')),
+            ),
+          );
+        }
+      }
+      EOF
+
+      cat > lib/utils/env.dart <<'EOF'
+      import 'package:envied/envied.dart';
+      part 'env.g.dart';
+
+      @Envied(path: '.env', obfuscate: true)
+      abstract class Env {
+        @EnviedField(varName: 'API_BASE_URL')
+        static const String apiBaseUrl = _Env.apiBaseUrl;
+
+        @EnviedField(varName: 'API_KEY')
+        static const String apiKey = _Env.apiKey;
+
+        @EnviedField(varName: 'SENTRY_DSN', defaultValue: '')
+        static const String sentryDsn = _Env.sentryDsn;
+
+        @EnviedField(varName: 'CRASHLYTICS_ENABLED', defaultValue: 'true')
+        static const String crashlyticsEnabled = _Env.crashlyticsEnabled;
+      }
+      EOF
+
+  # 4) build_runner + flutter_gen
+  gen_flutter:
+    $description: "build_runner + flutter_gen uretimi"
+    $script: |
+      flutter pub get
+      flutter pub run build_runner build --delete-conflicting-outputs || true
+      flutter pub run flutter_gen_runner build || true
+
+  # Kısa komutlar
+  clean:
+    $description: "Flutter clean"
+    $script: flutter clean
+
+  pub_get:
+    $description: "Flutter pub get"
+    $script: flutter pub get
+
+  run_app:
+    $description: "Flutter run"
+    $script: flutter run
+
+  reset:
+    $description: "Clean + pub get"
+    $script: |
+      flutter clean
+      flutter pub get
+
+  build_all:
+    $description: "Full build with code generation"
+    $script: |
+      flutter clean
+      flutter pub get
+      flutter pub run build_runner build --delete-conflicting-outputs
+
+  build_apk:
+    $description: "Build Android APK"
+    $script: flutter build apk
+
+  install_apk:
+    $description: "Install debug APK to connected device"
+    $script: adb install -r build/app/outputs/flutter-apk/app-debug.apk
+
+

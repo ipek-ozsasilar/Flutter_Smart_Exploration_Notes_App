@@ -31,8 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Script runner
-  rps: ^0.9.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -52,15 +50,33 @@ dependencies:
   # Structured logging
   logger: ^2.6.2
   # Firebase core runtime
-  firebase_core: ^4.2.1
+  firebase_core: ^3.0.0
   # Cloud Firestore access
-  cloud_firestore: ^6.1.0
+  cloud_firestore: ^5.0.0
   # Firebase UI screens
   firebase_ui_auth: ^1.13.1
   # Firebase authentication SDK
-  firebase_auth: ^5.3.4
+  firebase_auth: ^4.17.5
   # Firebase storage SDK
-  firebase_storage: ^13.0.4
+  firebase_storage: ^12.0.0
+  # Google Maps 
+  google_maps_flutter: ^2.14.0
+  # Geolocation
+  geolocator: ^14.0.2
+  # Image picker
+  image_picker: ^1.2.1
+  # Google ML Kit
+  google_mlkit_image_labeling: ^0.14.1
+  # Google ML Kit Object Detection
+  google_mlkit_object_detection: ^0.15.0
+  # GetX state management
+  get: ^4.6.6
+
+dependency_overrides:
+  # Force a compatible Firebase core line for all Firebase packages
+  firebase_core: ^3.0.0
+  # Force firebase_auth version compatible with firebase_ui_auth and rps
+  firebase_auth: ^4.17.5
 
 dev_dependencies:
   flutter_test:
