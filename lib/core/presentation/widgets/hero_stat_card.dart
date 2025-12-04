@@ -12,12 +12,13 @@ class HeroStatCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.icon,
+    this.colors,
   });
 
   final String title;
   final String subtitle;
   final IconData icon;
-  final List<Color> colors = [AppColors.sliderBlue, AppColors.sliderGreen];
+  final List<Color>? colors;
   final Color color = Colors.white.withOpacity(0.12);
   final FontWeight fontWeight = FontWeight.w700;
   final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
@@ -30,7 +31,7 @@ class HeroStatCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: colors,
+          colors: colors ?? [AppColors.sliderBlue, AppColors.sliderGreen],
         ),
         boxShadow: <BoxShadow>[_boxShadowMethod()],
       ),
@@ -71,7 +72,9 @@ class HeroStatCard extends StatelessWidget {
   }
 
   BoxShadow _boxShadowMethod() {
-    final Color color = colors.last.withOpacity(0.35);
+    final List<Color> gradientColors =
+        colors ?? [AppColors.sliderBlue, AppColors.sliderGreen];
+    final Color color = gradientColors.last.withOpacity(0.35);
     final Offset offset = const Offset(0, 12);
 
     return BoxShadow(

@@ -76,7 +76,7 @@ class BodyMediumText extends StatelessWidget {
 class LoginAndGoogleLoginButtonText extends StatelessWidget {
   const LoginAndGoogleLoginButtonText({super.key, required this.text});
   final String text;
-  final double letterSpacing = 0.5; 
+  final double letterSpacing = 0.5;
   final FontWeight fontWeight = FontWeight.w700;
   @override
   Widget build(BuildContext context) {
