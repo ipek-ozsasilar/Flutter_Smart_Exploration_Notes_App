@@ -1,4 +1,70 @@
-//presentation ≈ View + ViewModel (Provider/Cubit tarafı) Senin daha önce “view_model + sayfa” diye ayırdığın yer.
-//pages/ → View (ekranlar)
-//cubits/ → ViewModel / Provider mantığı (state yönetimi) 
-//widgets/ → o feature’a özel küçük UI parçaları
+import 'package:flutter/material.dart';
+import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
+import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
+import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/headline_small_text.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/label_medium_opacity_text.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/slider_colorful_container.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_cubix_animation.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_linear_progress_indicator.dart';
+
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
+  final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
+  final double opacity = 1;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GradientBackground(
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: mainAxisAlignment,
+            crossAxisAlignment: crossAxisAlignment,
+            children: [
+              Opacity(
+                opacity: opacity,
+                //Slider Colorful Container
+                child: SliderColorfulContainer( gradient: AppGradients.instance.sliderColorfulContainerGradient),
+              ),
+
+              //Splash Cubix Animation
+              Padding(
+                padding: AppPaddings.splashCubeAnimationPadding,
+                child: SplashCubixAnimation(),
+              ),
+              //Smart Exploration Notes Text
+              HeadlineSmallText(),
+
+              //Capture. Label. Rediscover. Text
+              Padding(
+                padding: AppPaddings.splashLabelRediscoverPadding,
+                child: LabelMediumOpacityText(
+                  text: AppStringsEnum.captureLabelRediscover.value,
+                ),
+              ),
+
+              //Splash Linear Progress Indicator
+              SplashLinearProgressIndicator(),
+
+              //AI is preparing your discovery space... Text
+              Padding(
+                padding: AppPaddings.splashAiPreparingPadding,
+                child: LabelMediumOpacityText(
+                  text: AppStringsEnum.aiDiscoveryPreparing.value,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
