@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
+import 'package:smart_exploration_notes/core/constants/app_icons.dart';
+import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
+import 'package:smart_exploration_notes/gen/colors.gen.dart';
+
+class RegisterPersonIconWidget extends StatelessWidget {
+  RegisterPersonIconWidget({
+    super.key,
+    required this.blurRadius,
+    required this.spreadRadius,
+  });
+
+  final double blurRadius;
+  final double spreadRadius;
+  final Color color = AppColors.sliderBlue.withOpacity(0.3);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: AppPaddings.loginDoorIconInnerPadding,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: AppGradients.instance.loginDoorIconGradient,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: color,
+            blurRadius: blurRadius,
+            spreadRadius: spreadRadius,
+          ),
+        ],
+      ),
+      child: IconWidget(
+        icon: AppIcons.personAdd,
+        size: AppSizesIcon.loginDoorIconSize.value,
+        color: AppColors.sliderBlue,
+      ),
+    );
+  }
+}

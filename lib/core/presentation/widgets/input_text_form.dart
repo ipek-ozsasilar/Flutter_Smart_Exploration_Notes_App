@@ -14,9 +14,19 @@ class InputTextForm extends StatefulWidget {
     super.key,
     required this.controller,
     required this.label,
+    this.validator,
+    this.keyboardType,
+    this.hintText,
+    this.icon,
+    this.passwordController,
   });
   final TextEditingController controller;
   final String label;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final String? hintText;
+  final IconData? icon;
+  final TextEditingController? passwordController;
 
   @override
   State<InputTextForm> createState() => _InputTextFormState();
@@ -25,13 +35,25 @@ class InputTextForm extends StatefulWidget {
 class _InputTextFormState extends State<InputTextForm> {
   late bool _obscureText;
   bool get _isEmailField => widget.label == AppStringsEnum.email.value;
+  bool get _isPasswordField => widget.label == AppStringsEnum.password.value;
+  bool get _isConfirmPasswordField =>
+      widget.label == AppStringsEnum.confirmPassword.value;
+  bool get _isNameField => widget.label == AppStringsEnum.name.value;
+  bool get _isPhoneField => widget.label == AppStringsEnum.phone.value;
+
   final bool filled = true;
   final Color fillColor = AppColors.white.withOpacity(0.1);
   final Color prefixIconColor = AppColors.sliderBlue.withOpacity(0.2);
+  final Color hintStyleColor = AppColors.white.withOpacity(0.4);
+  final Color labelStyleColor = Colors.white70;
+  final FontWeight errorStyleFontWeight = FontWeight.w600;
+  final double focusedBorderWidth = 2;
   @override
   void initState() {
     super.initState();
-    _obscureText = _isEmailField ? false : true;
+    _obscureText = _isEmailField || _isNameField || _isPhoneField
+        ? false
+        : true;
   }
 
   @override
@@ -39,23 +61,33 @@ class _InputTextFormState extends State<InputTextForm> {
     return TextFormField(
       controller: widget.controller,
       obscureText: _obscureText,
-      keyboardType: _isEmailField
-          ? TextInputType.emailAddress
-          : TextInputType.number,
+      keyboardType:
+          widget.keyboardType ??
+          (_isEmailField
+              ? TextInputType.emailAddress
+              : _isPhoneField
+              ? TextInputType.phone
+              : _isPasswordField
+              ? TextInputType.number
+              : TextInputType.text),
+
       inputFormatters: _isEmailField
           ? [FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9@._-]'))]
-          : [
+          : _isPasswordField
+          ? [
               FilteringTextInputFormatter.digitsOnly,
               LengthLimitingTextInputFormatter(6),
-            ],
-
+            ]
+          : null,
       style: const TextStyle(color: AppColors.white),
       decoration: InputDecoration(
         labelText: widget.label,
-        labelStyle: const TextStyle(color: Colors.white70),
+        hintText: widget.hintText,
+        hintStyle: TextStyle(color: hintStyleColor),
+        labelStyle: TextStyle(color: labelStyleColor),
         errorStyle: TextStyle(
           color: AppColors.amberAccent,
-          fontWeight: FontWeight.w600,
+          fontWeight: errorStyleFontWeight,
         ),
         prefixIcon: _prefixIconWidget(),
         suffixIcon: _suffixIconWidget(),
@@ -65,16 +97,27 @@ class _InputTextFormState extends State<InputTextForm> {
         enabledBorder: _enableBorderMethod(),
         focusedBorder: _focusedBorderMethod(),
       ),
-      validator: _isEmailField
-          ? AuthValidators.instance.validateEmail
-          : AuthValidators.instance.validatePassword,
+      validator:
+          widget.validator ??
+          (_isEmailField
+              ? AuthValidators.instance.validateEmail
+              : _isPasswordField
+              ? AuthValidators.instance.validatePassword
+              : _isNameField
+              ? AuthValidators.instance.validateName
+              : _isPhoneField
+              ? AuthValidators.instance.validatePhone
+              : null),
     );
   }
 
   OutlineInputBorder _focusedBorderMethod() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
-      borderSide: BorderSide(color: AppColors.sliderBlue, width: 2),
+      borderSide: BorderSide(
+        color: AppColors.sliderBlue,
+        width: focusedBorderWidth,
+      ),
     );
   }
 
@@ -93,6 +136,21 @@ class _InputTextFormState extends State<InputTextForm> {
   }
 
   Container _prefixIconWidget() {
+    IconData iconData;
+    if (widget.icon != null) {
+      iconData = widget.icon!;
+    } else if (_isEmailField) {
+      iconData = AppIcons.email;
+    } else if (_isPasswordField) {
+      iconData = AppIcons.password;
+    } else if (_isNameField) {
+      iconData = Icons.person_outline;
+    } else if (_isPhoneField) {
+      iconData = Icons.phone_outlined;
+    } else {
+      iconData = AppIcons.email;
+    }
+
     return Container(
       margin: AppPaddings.inputTextFormPrefixIconPadding,
       decoration: BoxDecoration(
@@ -100,7 +158,7 @@ class _InputTextFormState extends State<InputTextForm> {
         borderRadius: BorderRadius.circular(AppSizesRadius.chip.value),
       ),
       child: IconWidget(
-        icon: _isEmailField ? AppIcons.email : AppIcons.password,
+        icon: iconData,
         color: AppColors.sliderBlue,
         size: AppSizesIcon.inputTextFormIconSize.value,
       ),
@@ -108,18 +166,19 @@ class _InputTextFormState extends State<InputTextForm> {
   }
 
   Widget? _suffixIconWidget() {
-    return _isEmailField
-        ? null
-        : GeneralIconButton(
-            icon: _obscureText
-                ? Icons.visibility_outlined
-                : Icons.visibility_off_outlined,
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-            color: Colors.white70,
-          );
+    // Sadece password ve confirm password field'ları için visibility icon göster
+    if (_isPasswordField || _isConfirmPasswordField) {
+      return GeneralIconButton(
+        icon: _obscureText ? AppIcons.visibility : AppIcons.visibilityOff,
+        onPressed: () {
+          setState(() {
+            _obscureText = !_obscureText;
+          });
+        },
+        color: Colors.white70,
+      );
+    }
+    // Diğer tüm field'lar için null döndür
+    return null;
   }
 }
