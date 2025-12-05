@@ -33,54 +33,50 @@ class BottomNavBar extends StatelessWidget {
           child: Container(
             padding: AppPaddings.bottomNavBarPadding,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
-                  child: Padding(
-                    padding: AppPaddings.bottomNavBarItemPadding,
-                    child: _buildNavItem(
-                      context: context,
-                      icon: AppIcons.instance.notifications,
-                      activeIcon: AppIcons.instance.notificationsRounded,
-                      label: AppStringsEnum.notify.value,
-                      index: 0,
-                      isActive: selectedIndex == 0,
-                      onTap: () {
-                        if (selectedIndex != 0) {
-                          Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const NotificationsView(),
-                            ),
-                          );
-                        }
-                      },
-                    ),
+                  flex: 1,
+                  child: _buildNavItem(
+                    context: context,
+                    icon: AppIcons.instance.notifications,
+                    activeIcon: AppIcons.instance.notificationsRounded,
+                    label: AppStringsEnum.notify.value,
+                    index: 0,
+                    isActive: selectedIndex == 0,
+                    onTap: () {
+                      if (selectedIndex != 0) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const NotificationsView(),
+                          ),
+                        );
+                      }
+                    },
                   ),
                 ),
 
                 // Ortadaki + butonu için boşluk
+                const SizedBox(width: 80),
+
                 Expanded(
-                  child: Padding(
-                    padding: AppPaddings.bottomNavBarItemPadding,
-                    child: _buildNavItem(
-                      context: context,
-                      icon: AppIcons.instance.mapOutlined,
-                      activeIcon: AppIcons.instance.mapRounded,
-                      label: AppStringsEnum.map.value,
-                      index: 2,
-                      isActive: selectedIndex == 2,
-                      onTap: () {
-                        if (selectedIndex != 2) {
-                          Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const MapView(),
-                            ),
-                          );
-                        }
-                      },
-                    ),
+                  flex: 1,
+                  child: _buildNavItem(
+                    context: context,
+                    icon: AppIcons.instance.mapOutlined,
+                    activeIcon: AppIcons.instance.mapRounded,
+                    label: AppStringsEnum.map.value,
+                    index: 2,
+                    isActive: selectedIndex == 2,
+                    onTap: () {
+                      if (selectedIndex != 2) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => const MapView(),
+                          ),
+                        );
+                      }
+                    },
                   ),
                 ),
               ],
@@ -107,16 +103,11 @@ class BottomNavBar extends StatelessWidget {
     required bool isActive,
     required VoidCallback onTap,
   }) {
-    final MainAxisSize mainAxisSize = MainAxisSize.min;
-    final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-    final FontWeight fontWeight = isActive ? FontWeight.w700 : FontWeight.w500;
-    final int maxLines = 1;
-    final TextOverflow overflow = TextOverflow.ellipsis;
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
       child: Container(
-        padding: AppPaddings.bottomNavBarPadding,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
           color: isActive

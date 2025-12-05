@@ -11,10 +11,14 @@ enum AppStringsEnum {
   captureLabelRediscover(
     'Capture. Label. Rediscover.\nYour personal discovery journal on the map.',
   ),
-  homeBottomCardDescription('Bugün ilk keşfini eklemek için hazır mısın? Aşağıdan başla.'),
-  homeBottomCardDescriptionContinue('Bugün yeni bir şey keşfettin mi? Eklemek için aşağıdan devam et.'),
-  homeBottomCardButtonText('İlk Keşfini Başlat'),
-  homeBottomCardButtonTextContinue('Keşiflere Devam Et'),
+  homeBottomCardDescription(
+    'Are you ready to add your first discovery today? Start from below.',
+  ),
+  homeBottomCardDescriptionContinue(
+    'Did you discover something new today? Continue from below to add it.',
+  ),
+  homeBottomCardButtonText('Start Your First Discovery'),
+  homeBottomCardButtonTextContinue('Continue Discoveries'),
   forgotPassword('I forgot my password'),
   forgotPasswordEmailSent(
     'Password reset link has been sent to your email address',
@@ -25,7 +29,9 @@ enum AppStringsEnum {
   forgotPasswordEnterEmail(
     'Enter your email address, we will send you a password reset link',
   ),
-  forgotPasswordEmailSentDescription('Please check your email and click the password reset link.'),
+  forgotPasswordEmailSentDescription(
+    'Please check your email and click the password reset link.',
+  ),
   noDiscoveries('No discoveries yet'),
   doYouHaveAnAccount('Do you have an account?'),
   aiDiscoveryPreparing('AI is preparing your discovery space...'),
