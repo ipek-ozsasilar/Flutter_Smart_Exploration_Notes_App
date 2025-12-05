@@ -1,0 +1,19 @@
+<resources>
+    <color name="gradient_1">#1D4ED8</color>
+    <color name="gradient_2">#1E40AF</color>
+    <color name="gradient_3">#020617</color>
+    <color name="background">#020617</color>
+    <color name="slider_green">#22C55E</color>
+    <color name="slider_orange">#F97316</color>
+    <color name="slider_blue">#38BDF8</color>
+    <color name="cubix_red">#E11D48</color>
+    <color name="cubix_purple">#A855F7</color>
+    <color name="cubix_blue">#0EA5E9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="indicator_color">#FB7185</color>
+    <color name="amber_accent">#FFD700</color>
+    <color name="dark_background">#0F172A</color>
+    <color name="dark_background_2">#1E293B</color>
+    <color name="black">#00000000</color>
+    <color name="home_bottom_card_background">#020617</color>
+</resources>

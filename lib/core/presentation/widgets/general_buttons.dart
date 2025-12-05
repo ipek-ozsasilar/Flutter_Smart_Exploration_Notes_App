@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
-import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/home_view.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
@@ -42,28 +41,47 @@ class GeneralOutlinedIconButton extends StatelessWidget {
 class GeneralElevatedButton extends StatelessWidget {
   const GeneralElevatedButton({
     super.key,
+    required this.text,
     required GlobalKey<FormState> formKey,
+    this.gradient,
+    this.onPressed,
+    this.shadowColor,
   }) : _formKey = formKey;
 
   final GlobalKey<FormState> _formKey;
+  final String text;
+  final LinearGradient? gradient;
+  final VoidCallback? onPressed;
+  final Color? shadowColor;
 
   @override
   Widget build(BuildContext context) {
+    final LinearGradient buttonGradient =
+        gradient ?? AppGradients.instance.loginSliderColorfulContainerGradient;
+    final Color shadowColorValue =
+        shadowColor ?? AppColors.sliderBlue.withOpacity(0.4);
+
     return Container(
       decoration: BoxDecoration(
-        gradient: AppGradients.instance.loginSliderColorfulContainerGradient,
+        gradient: buttonGradient,
         borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
-        boxShadow: <BoxShadow>[_loginButtonContainerBoxShadow()],
+        boxShadow: <BoxShadow>[
+          _loginButtonContainerBoxShadow(shadowColorValue),
+        ],
       ),
       child: ElevatedButton(
         onPressed: () {
           if (_formKey.currentState?.validate() ?? false) {
-            // Giriş işlemi
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const HomeView(),
-              ),
-            );
+            if (onPressed != null) {
+              onPressed!();
+            } else {
+              // Default: Giriş işlemi
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const HomeView(),
+                ),
+              );
+            }
           }
         },
         style: ElevatedButton.styleFrom(
@@ -75,13 +93,12 @@ class GeneralElevatedButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
           ),
         ),
-        child: LoginAndGoogleLoginButtonText(text: AppStringsEnum.login.value),
+        child: LoginAndGoogleLoginButtonText(text: text),
       ),
     );
   }
 
-  BoxShadow _loginButtonContainerBoxShadow() {
-    final Color color = AppColors.sliderBlue.withOpacity(0.4);
+  BoxShadow _loginButtonContainerBoxShadow(Color color) {
     final Offset offset = const Offset(0, 8);
 
     return BoxShadow(
