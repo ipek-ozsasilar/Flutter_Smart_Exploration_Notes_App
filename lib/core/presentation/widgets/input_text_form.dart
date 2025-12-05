@@ -140,15 +140,15 @@ class _InputTextFormState extends State<InputTextForm> {
     if (widget.icon != null) {
       iconData = widget.icon!;
     } else if (_isEmailField) {
-      iconData = AppIcons.email;
+      iconData = AppIcons.instance.email;
     } else if (_isPasswordField) {
-      iconData = AppIcons.password;
+      iconData = AppIcons.instance.password;
     } else if (_isNameField) {
       iconData = Icons.person_outline;
     } else if (_isPhoneField) {
       iconData = Icons.phone_outlined;
     } else {
-      iconData = AppIcons.email;
+      iconData = AppIcons.instance.email;
     }
 
     return Container(
@@ -169,7 +169,7 @@ class _InputTextFormState extends State<InputTextForm> {
     // Sadece password ve confirm password field'ları için visibility icon göster
     if (_isPasswordField || _isConfirmPasswordField) {
       return GeneralIconButton(
-        icon: _obscureText ? AppIcons.visibility : AppIcons.visibilityOff,
+        icon: _obscureText ? AppIcons.instance.visibility : AppIcons.instance.visibilityOff,
         onPressed: () {
           setState(() {
             _obscureText = !_obscureText;

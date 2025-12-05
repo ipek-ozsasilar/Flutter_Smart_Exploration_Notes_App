@@ -9,7 +9,7 @@ import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.da
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/pages/forgot_password_view.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/pages/register_view.dart';
-import 'package:smart_exploration_notes/features/auth/presentation/pages/widgets/login_door_widget.dart';
+import 'package:smart_exploration_notes/features/auth/presentation/widgets/login_door_widget.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 
 //Login Screen
@@ -94,7 +94,7 @@ class _LoginViewState extends State<LoginView> {
                   //login button
                   Padding(
                     padding: AppPaddings.loginButtonPadding,
-                    child: GeneralElevatedButton(formKey: _formKey),
+                    child: GeneralElevatedButton(formKey: _formKey, text: AppStringsEnum.login.value),
                   ),
 
                   //or divider

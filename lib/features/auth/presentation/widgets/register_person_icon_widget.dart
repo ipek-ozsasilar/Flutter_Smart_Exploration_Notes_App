@@ -32,7 +32,7 @@ class RegisterPersonIconWidget extends StatelessWidget {
         ],
       ),
       child: IconWidget(
-        icon: AppIcons.personAdd,
+        icon: AppIcons.instance.personAdd,
         size: AppSizesIcon.loginDoorIconSize.value,
         color: AppColors.sliderBlue,
       ),

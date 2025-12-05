@@ -11,7 +11,7 @@ import 'package:smart_exploration_notes/core/presentation/widgets/slider_colorfu
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/core/validators/auth_validators.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/pages/login_view.dart';
-import 'package:smart_exploration_notes/features/auth/presentation/pages/widgets/register_person_icon_widget.dart';
+import 'package:smart_exploration_notes/features/auth/presentation/widgets/register_person_icon_widget.dart';
 
 /// Kayıt olma ekranı
 class RegisterView extends StatefulWidget {
@@ -72,7 +72,7 @@ class _RegisterViewState extends State<RegisterView> {
                     child: HeroStatCard(
                       title: AppStringsEnum.createPersonalDiscoveryNote.value,
                       subtitle: AppStringsEnum.locationPhotoAITagsReady.value,
-                      icon: AppIcons.flag,
+                      icon: AppIcons.instance.flag,
                     ),
                   ),
 
@@ -100,7 +100,7 @@ class _RegisterViewState extends State<RegisterView> {
                   InputTextForm(
                     controller: _nameController,
                     label: AppStringsEnum.name.value,
-                    icon: AppIcons.person,
+                    icon: AppIcons.instance.person,
                     validator: AuthValidators.instance.validateName,
                   ),
 
@@ -148,7 +148,7 @@ class _RegisterViewState extends State<RegisterView> {
 
                   Padding(
                     padding: AppPaddings.loginButtonInnerPadding,
-                    child: GeneralElevatedButton(formKey: _formKey),
+                    child: GeneralElevatedButton(formKey: _formKey, text: AppStringsEnum.createAccount.value),
                   ),
 
                   Row(

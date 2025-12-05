@@ -19,7 +19,7 @@ class ForgotResetIconWidget extends StatelessWidget {
         boxShadow: <BoxShadow>[_boxShadowMethod()],
       ),
       child: IconWidget(
-        icon: AppIcons.lockReset,
+        icon: AppIcons.instance.lockReset,
         color: AppColors.sliderOrange,
         size: AppSizesIcon.loginDoorIconSize.value,
       ),

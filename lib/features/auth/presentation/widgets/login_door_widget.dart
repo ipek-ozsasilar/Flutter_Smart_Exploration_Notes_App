@@ -21,7 +21,7 @@ class LoginDoorWidget extends StatelessWidget {
         boxShadow: <BoxShadow>[_boxShadowMethod()],
       ),
       child: IconWidget(
-        icon: AppIcons.loginDoor,
+        icon: AppIcons.instance.loginDoor,
         size: AppSizesIcon.loginDoorIconSize.value,
         color: AppColors.sliderBlue,
       ),

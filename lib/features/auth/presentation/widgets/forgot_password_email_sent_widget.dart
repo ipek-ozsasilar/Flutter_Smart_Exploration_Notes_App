@@ -38,7 +38,7 @@ class ForgotPasswordEmailSentWidget extends StatelessWidget {
             padding: AppPaddings.loginViewGeneralPadding,
             decoration: BoxDecoration(shape: BoxShape.circle, color: color),
             child: IconWidget(
-              icon: AppIcons.checkCircleOutline,
+              icon: AppIcons.instance.checkCircleOutline,
               color: AppColors.sliderGreen,
               size: AppSizesIcon.loginDoorIconSize.value,
             ),

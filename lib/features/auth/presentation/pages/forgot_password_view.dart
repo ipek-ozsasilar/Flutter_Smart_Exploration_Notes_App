@@ -60,7 +60,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     child: HeroStatCard(
                       title: AppStringsEnum.forgotPasswordTitle.value,
                       subtitle: AppStringsEnum.forgotPasswordDescription.value,
-                      icon: AppIcons.lockReset,
+                      icon: AppIcons.instance.lockReset,
                       colors: [AppColors.sliderOrange, AppColors.cubixRed],
                     ),
                   ),

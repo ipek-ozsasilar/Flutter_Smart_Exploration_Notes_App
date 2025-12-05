@@ -21,32 +21,32 @@ class SplashCubixAnimation extends StatelessWidget {
         onSelected: (_) => true,
         //küpün yüzlerine çzilen kartlar mesela front ön yüzü
         front: _SplashCubeFace(
-          icon: AppIcons.map,
+          icon: AppIcons.instance.map,
           color: AppColors.sliderGreen,
           label: AppStringsEnum.map.value,
         ),
         back: _SplashCubeFace(
-          icon: AppIcons.capture,
+          icon: AppIcons.instance.capture,
           color: AppColors.sliderBlue,
           label: AppStringsEnum.capture.value,
         ),
         left: _SplashCubeFace(
-          icon: AppIcons.labels,
+          icon: AppIcons.instance.labels,
           color: AppColors.sliderOrange,
           label: AppStringsEnum.labels.value,
         ),
         right: _SplashCubeFace(
-          icon: AppIcons.notify,
+          icon: AppIcons.instance.notify,
           color: AppColors.cubixRed,
           label: AppStringsEnum.notify.value,
         ),
         top: _SplashCubeFace(
-          icon: AppIcons.ai,
+          icon: AppIcons.instance.ai,
           color: AppColors.cubixPurple,
           label: AppStringsEnum.ai.value,
         ),
         bottom: _SplashCubeFace(
-          icon: AppIcons.notes,
+          icon: AppIcons.instance.notes,
           color: AppColors.cubixBlue,
           label: AppStringsEnum.notes.value,
         ),

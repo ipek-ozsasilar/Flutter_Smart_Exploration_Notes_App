@@ -3,9 +3,8 @@ import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
-import 'package:smart_exploration_notes/core/presentation/widgets/headline_small_text.dart';
-import 'package:smart_exploration_notes/core/presentation/widgets/label_medium_opacity_text.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/slider_colorful_container.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_cubix_animation.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_linear_progress_indicator.dart';
 
@@ -32,7 +31,10 @@ class _SplashViewState extends State<SplashView> {
               Opacity(
                 opacity: opacity,
                 //Slider Colorful Container
-                child: SliderColorfulContainer( gradient: AppGradients.instance.sliderColorfulContainerGradient),
+                child: SliderColorfulContainer(
+                  gradient:
+                      AppGradients.instance.splashSliderColorfulContainerGradient,
+                ),
               ),
 
               //Splash Cubix Animation
@@ -41,7 +43,7 @@ class _SplashViewState extends State<SplashView> {
                 child: SplashCubixAnimation(),
               ),
               //Smart Exploration Notes Text
-              HeadlineSmallText(),
+              HeadlineSmallText( text: AppStringsEnum.smartExplorationNotes.value),
 
               //Capture. Label. Rediscover. Text
               Padding(
