@@ -8,6 +8,9 @@ enum AppStringsEnum {
   or('Or'),
   welcomeDescription('Welcome to the Smart Exploration Notes'),
   completed('Completed'),
+  phoneVerification('Phone Verification'),
+  phoneVerificationCodeNotReceived('Code not received?'),
+  verify('Verify'),
   captureLabelRediscover(
     'Capture. Label. Rediscover.\nYour personal discovery journal on the map.',
   ),

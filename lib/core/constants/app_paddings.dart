@@ -60,10 +60,12 @@ class AppPaddings {
     top: 20,
     bottom: 12,
   );
+  static const EdgeInsets phoneVerificationSliderColorfulContainerPadding = EdgeInsets.only(top: 90);
   static const EdgeInsets bottomNavBarPadding = EdgeInsets.symmetric(
     horizontal: 8,
     vertical: 8,
   );
   static const EdgeInsets bottomNavBarItemPadding = EdgeInsets.only(right: 40);
   static const EdgeInsets homeDiscoveriesValuesInsidePadding = EdgeInsets.only(top: 4,bottom: 16);
+  static const EdgeInsets codeRepeatRowTimeContainerPadding = EdgeInsets.symmetric(horizontal: 12, vertical: 6);
 }

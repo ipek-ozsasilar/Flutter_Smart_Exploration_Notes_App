@@ -5,7 +5,9 @@ enum AppSizesEnum {
   sliderColorfulContainerHeight(4),
   splashViewCubeInnerSize(120),
   homeAnimationInnerDotSize(96),
-  homeAnimationOrbitDotSize(8);
+  homeAnimationOrbitDotSize(8),
+  phoneCodeInputContainerWidth(52),
+  phoneCodeInputContainerHeight(64);
 
   final double value;
 
@@ -41,6 +43,7 @@ enum AppSizesIcon {
 }
 
 enum AppSizesText {
+  phoneCodeInputItemFontSize(28),
   loginAndGoogleLoginButtonTextFontSize(16),
   bottomNavTextFontSize(10),
   homeDiscoveriesValuesFontSize(22);

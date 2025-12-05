@@ -113,20 +113,16 @@ class GeneralTextButton extends StatelessWidget {
   const GeneralTextButton({
     super.key,
     required this.text,
-    required this.widget,
+    required this.onPressed,
   });
 
   final String text;
-  final Widget widget;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute<void>(builder: (BuildContext context) => widget),
-        );
-      },
+      onPressed: onPressed,
       child: Text(text, style: TextStyle(color: AppColors.sliderBlue)),
     );
   }

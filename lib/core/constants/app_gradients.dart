@@ -79,5 +79,18 @@ class AppGradients {
       AppColors.sliderGreen.withOpacity(0.3),
     ],
   );
-  
+
+  LinearGradient phoneVerificationSliderColorfulContainerGradient =
+      LinearGradient(
+        colors: <Color>[AppColors.sliderGreen, AppColors.cubixPurple],
+      );
+
+  LinearGradient phoneCodeInputContainerGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[
+      Colors.white.withOpacity(0.15),
+      Colors.white.withOpacity(0.08),
+    ],
+  );
 }

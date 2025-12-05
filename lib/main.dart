@@ -9,6 +9,7 @@ import 'features/discoveries/presentation/pages/splash_view.dart';
 import 'features/auth/presentation/pages/login_view.dart';
 import 'features/auth/presentation/pages/phone_verification_view.dart';
 import 'features/discoveries/presentation/pages/discoveries_list_view.dart';
+import 'features/auth/presentation/pages/phone_verification_view.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupServiceLocator();
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
           ],
         );
       },
-      home: const HomeView(),
+      home: const PhoneVerificationView(phoneNumber: '532 532 53 25'),
     );
   }
 }
