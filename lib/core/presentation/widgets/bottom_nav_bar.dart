@@ -6,8 +6,8 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
-import '../pages/notifications_view.dart';
-import '../pages/map_view.dart';
+import '../../../features/discoveries/presentation/pages/notifications_view.dart';
+import '../../../features/discoveries/presentation/pages/map_view.dart';
 
 /// Bottom navigation bar widget'ı
 class BottomNavBar extends StatelessWidget {

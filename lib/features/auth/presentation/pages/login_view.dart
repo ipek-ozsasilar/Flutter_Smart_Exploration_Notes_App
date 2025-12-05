@@ -87,7 +87,11 @@ class _LoginViewState extends State<LoginView> {
                     alignment: Alignment.centerRight,
                     child: GeneralTextButton(
                       text: AppStringsEnum.forgotPassword.value,
-                      widget: const ForgotPasswordView(),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (BuildContext context) => const ForgotPasswordView()),
+                        );
+                      },
                     ),
                   ),
 
@@ -115,7 +119,11 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       GeneralTextButton(
                         text: AppStringsEnum.register.value,
-                        widget: const RegisterView(),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (BuildContext context) => const RegisterView()),
+                          );
+                        },
                       ),
                     ],
                   ),

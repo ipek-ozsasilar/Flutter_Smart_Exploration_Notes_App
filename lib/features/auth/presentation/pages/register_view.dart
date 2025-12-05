@@ -159,7 +159,11 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       GeneralTextButton(
                         text: AppStringsEnum.login.value,
-                        widget: const LoginView(),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (BuildContext context) => const LoginView()),
+                          );
+                        },
                       ),
                     ],
                   ),
