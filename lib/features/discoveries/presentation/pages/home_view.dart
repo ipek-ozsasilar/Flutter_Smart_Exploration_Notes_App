@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/home_bottom_card_widget.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/bottom_nav_bar.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/home_top_bar_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/home_animation_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/home_discoveries_values_widget.dart';

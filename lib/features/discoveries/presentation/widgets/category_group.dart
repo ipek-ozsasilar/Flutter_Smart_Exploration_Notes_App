@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
+
 class CategoryGroup {
   const CategoryGroup({
     required this.title,
@@ -22,103 +24,109 @@ class CategoryCard extends StatelessWidget {
   const CategoryCard({required this.group});
 
   final CategoryGroup group;
+  final double borderWidth = 1.2;
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding:  AppPaddings.loginViewGeneralPadding,
+      margin: AppPaddings.categoryCardMargin,
+      padding: AppPaddings.categoryCardPadding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[
-            group.color.withOpacity(0.22),
-            AppColors.black.withOpacity(0.5),
-          ],
+        gradient: _categoryOutLinearGradientMethod(),
+        border: Border.all(
+          color: group.color.withOpacity(0.6),
+          width: borderWidth,
         ),
-        border: Border.all(color: group.color.withOpacity(0.6), width: 1.2),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: group.color.withOpacity(0.45),
-            blurRadius: 22,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        boxShadow: <BoxShadow>[_boxShadowMethod()],
       ),
-      child: Row(
-        children: <Widget>[
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[group.color, group.color.withOpacity(0.7)],
-              ),
-            ),
-            child: const IconWidget(
-              icon: AppIcons.instance.label,
-              color: AppColors.white,
-              size: AppSizesIcon.label.value,
-            ),
+      child: _CategoryItemsMethod(context),
+    );
+  }
+
+  Row _CategoryItemsMethod(BuildContext context) {
+    final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
+    final Color color = AppColors.white.withOpacity(0.8);
+    final CrossAxisAlignment crossAxisAlignmentEnd = CrossAxisAlignment.end;
+
+    return Row(
+      children: <Widget>[
+        Container(
+          width: AppSizesIcon.categoryCardIconContainerSize.value,
+          height: AppSizesIcon.categoryCardIconContainerSize.value,
+          decoration: _boxShadowMethodInner(),
+          child: IconWidget(
+            icon: AppIcons.instance.label,
+            color: AppColors.white,
+            size: AppSizesIcon.categoryCardIconSize.value,
           ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  group.title,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  group.description,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Colors.white70,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+        ),
+        Padding(padding: AppPaddings.categoryCardIconSpacing),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.4),
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: Text(
-                  '${group.count} keşif',
-                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.white.withOpacity(0.8),
-                size: 16,
+              NormalText(label: group.title, fontWeight: FontWeight.w700),
+              Padding(
+                padding: AppPaddings.categoryCardTextSpacing,
+                child: BodyMediumText(text: group.description, textAlign: TextAlign.left),
               ),
             ],
           ),
-        ],
+        ),
+        Column(
+          crossAxisAlignment: crossAxisAlignmentEnd,
+          children: <Widget>[
+            Container(
+              padding: AppPaddings.categoryCardCountPadding,
+              decoration: BoxDecoration(
+                color: AppColors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(AppSizesRadius.full.value),
+              ),
+              child: LabelMediumOpacityText(text: '${group.count} discoveries'),
+            ),
+            Padding(
+              padding: AppPaddings.categoryCardArrowSpacing,
+              child: IconWidget(
+                icon: AppIcons.instance.arrowForwardIosRounded,
+                color: color,
+                size: AppSizesIcon.categoryCardArrowIconSize.value,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  LinearGradient _categoryOutLinearGradientMethod() {
+    return LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: <Color>[
+        group.color.withOpacity(0.22),
+        AppColors.black.withOpacity(0.5),
+      ],
+    );
+  }
+
+  BoxShadow _boxShadowMethod() {
+    final double blurRadius = 22;
+    final Offset offset = const Offset(0, 10);
+    return BoxShadow(
+      color: group.color.withOpacity(0.45),
+      blurRadius: blurRadius,
+      offset: offset,
+    );
+  }
+
+  BoxDecoration _boxShadowMethodInner() {
+    return BoxDecoration(
+      shape: BoxShape.circle,
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[group.color, group.color.withOpacity(0.7)],
       ),
     );
   }

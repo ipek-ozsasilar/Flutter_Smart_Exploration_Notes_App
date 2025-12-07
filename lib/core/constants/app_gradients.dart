@@ -93,4 +93,6 @@ class AppGradients {
       Colors.white.withOpacity(0.08),
     ],
   );
+
+
 }

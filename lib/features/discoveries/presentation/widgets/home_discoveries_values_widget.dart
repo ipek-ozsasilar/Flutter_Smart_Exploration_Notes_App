@@ -25,21 +25,21 @@ class HomeDiscoveriesValuesWidget extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children: <Widget>[
-        HeadlineSmallText(text: '${(_progress * 100).round()}%'.toString()),
+        HeadlineSmallText(text: '${(_progress * 100).round()}%'.toString(), fontSize: AppSizesText.headlineSmallFontSize.value),
 
         Padding(
           padding: AppPaddings.homeDiscoveriesValuesInsidePadding,
           child: BodyMediumText(text: AppStringsEnum.completed.value),
         ),
 
-        HeadlineSmallText(text: '$goalDiscovery'),
+        HeadlineSmallText(text: '$goalDiscovery', fontSize: AppSizesText.headlineSmallFontSize.value),
 
         Padding(
           padding: AppPaddings.homeDiscoveriesValuesInsidePadding,
           child: BodyMediumText(text: AppStringsEnum.targetDiscovery.value),
         ),
 
-        HeadlineSmallText(text: _discoveryCount.toString()),
+        HeadlineSmallText(text: _discoveryCount.toString(), fontSize: AppSizesText.headlineSmallFontSize.value),
 
         Padding(
           padding: AppPaddings.heroStatCardSubtitlePadding,

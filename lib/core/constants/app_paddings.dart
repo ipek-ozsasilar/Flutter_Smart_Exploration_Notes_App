@@ -60,12 +60,36 @@ class AppPaddings {
     top: 20,
     bottom: 12,
   );
-  static const EdgeInsets phoneVerificationSliderColorfulContainerPadding = EdgeInsets.only(top: 90);
+  static const EdgeInsets phoneVerificationSliderColorfulContainerPadding =
+      EdgeInsets.only(top: 90);
   static const EdgeInsets bottomNavBarPadding = EdgeInsets.symmetric(
     horizontal: 8,
     vertical: 8,
   );
   static const EdgeInsets bottomNavBarItemPadding = EdgeInsets.only(right: 40);
-  static const EdgeInsets homeDiscoveriesValuesInsidePadding = EdgeInsets.only(top: 4,bottom: 16);
-  static const EdgeInsets codeRepeatRowTimeContainerPadding = EdgeInsets.symmetric(horizontal: 12, vertical: 6);
+  static const EdgeInsets homeDiscoveriesValuesInsidePadding = EdgeInsets.only(
+    top: 4,
+    bottom: 16,
+  );
+  static const EdgeInsets codeRepeatRowTimeContainerPadding =
+      EdgeInsets.symmetric(horizontal: 12, vertical: 6);
+  static const EdgeInsets discoveriesListViewDescriptionPadding =
+      EdgeInsets.symmetric(horizontal: 24, vertical: 12);
+  static const EdgeInsets discoveriesListViewBuilderPadding =
+      EdgeInsets.fromLTRB(20, 8, 20, 24);
+  static const EdgeInsets categoryCardPadding = EdgeInsets.symmetric(
+    horizontal: 24,
+    vertical: 20,
+  );
+  static const EdgeInsets categoryCardMargin = EdgeInsets.symmetric(
+    vertical: 12,
+  );
+  static const EdgeInsets categoryCardIconSpacing = EdgeInsets.only(right: 16);
+  static const EdgeInsets categoryCardTextSpacing = EdgeInsets.only(top: 4);
+  static const EdgeInsets categoryCardRightSpacing = EdgeInsets.only(left: 12);
+  static const EdgeInsets categoryCardCountPadding = EdgeInsets.symmetric(
+    horizontal: 12,
+    vertical: 6,
+  );
+  static const EdgeInsets categoryCardArrowSpacing = EdgeInsets.only(top: 8);
 }

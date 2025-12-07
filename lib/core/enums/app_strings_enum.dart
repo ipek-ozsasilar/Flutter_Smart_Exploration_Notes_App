@@ -9,11 +9,23 @@ enum AppStringsEnum {
   welcomeDescription('Welcome to the Smart Exploration Notes'),
   completed('Completed'),
   phoneVerification('Phone Verification'),
+  discoveriesListViewTitle('Discoveries List View Title'),
   phoneVerificationCodeNotReceived('Code not received?'),
   verify('Verify'),
+  discoveriesListViewDescription(
+    'View your discoveries grouped by tags as cards.',
+  ),
+  historicalBuildings('Historical Buildings'),
+  historicalBuildingsDescription('Historical Buildings Description'),
   captureLabelRediscover(
     'Capture. Label. Rediscover.\nYour personal discovery journal on the map.',
   ),
+  natureAndLandscapeDescription('Nature and Landscape Description'),
+  streetArtDescription('Street Art Description'),
+  coffeeAndPlacesDescription('Coffee and Places Description'),
+  natureAndLandscape('Nature and Landscape'),
+  streetArt('Street Art'),
+  coffeeAndPlaces('Coffee and Places'),
   homeBottomCardDescription(
     'Are you ready to add your first discovery today? Start from below.',
   ),

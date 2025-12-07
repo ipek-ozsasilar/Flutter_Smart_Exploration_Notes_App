@@ -39,7 +39,8 @@ class LabelMediumOpacityText extends StatelessWidget {
 }
 
 class HeadlineSmallText extends StatelessWidget {
-  HeadlineSmallText({super.key, required this.text});
+  HeadlineSmallText({super.key, required this.text, required this.fontSize});
+  final double fontSize;
   final double letterSpacing = 0.5;
   final TextAlign textAlign = TextAlign.center;
   final FontWeight fontWeight = FontWeight.w700;
@@ -52,6 +53,7 @@ class HeadlineSmallText extends StatelessWidget {
       style: Theme.of(context).textTheme.headlineSmall?.copyWith(
         color: AppColors.white,
         fontWeight: fontWeight,
+        fontSize: fontSize,
         letterSpacing: letterSpacing,
       ),
     );
@@ -59,9 +61,13 @@ class HeadlineSmallText extends StatelessWidget {
 }
 
 class BodyMediumText extends StatelessWidget {
-  BodyMediumText({super.key, required this.text});
+  BodyMediumText({
+    super.key,
+    required this.text,
+    this.textAlign = TextAlign.center,
+  });
   final String text;
-  final TextAlign textAlign = TextAlign.center;
+  final TextAlign textAlign;
   final Color color = Colors.white70;
   @override
   Widget build(BuildContext context) {

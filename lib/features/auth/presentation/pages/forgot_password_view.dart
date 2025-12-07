@@ -11,6 +11,7 @@ import 'package:smart_exploration_notes/features/auth/presentation/widgets/forgo
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/forgot_password_form_widget.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/forgot_password_email_sent_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 
 /// Şifre sıfırlama ekranı
 class ForgotPasswordView extends StatefulWidget {
@@ -72,7 +73,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   ),
 
                   // forgot password title
-                  HeadlineSmallText(text: AppStringsEnum.forgotPassword.value),
+                  HeadlineSmallText(text: AppStringsEnum.forgotPassword.value, fontSize: AppSizesText.headlineSmallFontSize.value),
 
                   // forgot password description
                   Padding(

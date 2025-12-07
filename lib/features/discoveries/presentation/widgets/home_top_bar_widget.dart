@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
-
 class HomeTopBarWidget extends StatelessWidget {
   const HomeTopBarWidget({super.key, required int discoveryCount})
     : _discoveryCount = discoveryCount;
@@ -21,7 +21,7 @@ class HomeTopBarWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
-              HeadlineSmallText(text: AppStringsEnum.discoveries.value),
+              HeadlineSmallText(text: AppStringsEnum.discoveries.value, fontSize: AppSizesText.headlineSmallFontSize.value),
               Padding(
                 padding: AppPaddings.heroStatCardSubtitlePadding,
                 child: BodyMediumText(

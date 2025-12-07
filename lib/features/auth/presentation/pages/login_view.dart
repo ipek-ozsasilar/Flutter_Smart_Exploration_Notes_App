@@ -11,6 +11,7 @@ import 'package:smart_exploration_notes/features/auth/presentation/pages/forgot_
 import 'package:smart_exploration_notes/features/auth/presentation/pages/register_view.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/login_door_widget.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 
 //Login Screen
 class LoginView extends StatefulWidget {
@@ -64,6 +65,7 @@ class _LoginViewState extends State<LoginView> {
                     padding: AppPaddings.loginWelcomeTextPadding,
                     child: HeadlineSmallText(
                       text: AppStringsEnum.welcome.value,
+                      fontSize: AppSizesText.headlineSmallFontSize.value,
                     ),
                   ),
 

@@ -47,6 +47,7 @@ class ForgotPasswordEmailSentWidget extends StatelessWidget {
             padding: AppPaddings.forgotPasswordEmailSentPadding,
             child: HeadlineSmallText(
               text: AppStringsEnum.forgotPasswordEmailSent.value,
+              fontSize: AppSizesText.headlineSmallFontSize.value,
             ),
           ),
           BodyMediumText(

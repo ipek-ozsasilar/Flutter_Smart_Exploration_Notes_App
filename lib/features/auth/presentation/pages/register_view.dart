@@ -12,6 +12,7 @@ import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.da
 import 'package:smart_exploration_notes/core/validators/auth_validators.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/pages/login_view.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/register_person_icon_widget.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 
 /// Kayıt olma ekranı
 class RegisterView extends StatefulWidget {
@@ -86,7 +87,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
 
                   // create account text
-                  HeadlineSmallText(text: AppStringsEnum.createAccount.value),
+                  HeadlineSmallText(text: AppStringsEnum.createAccount.value, fontSize: AppSizesText.headlineSmallFontSize.value),
 
                   // create account description text
                   Padding(

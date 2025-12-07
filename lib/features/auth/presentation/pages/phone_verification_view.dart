@@ -63,6 +63,7 @@ class _PhoneVerificationViewState extends State<PhoneVerificationView> {
                   // Title and description
                   HeadlineSmallText(
                     text: AppStringsEnum.phoneVerification.value,
+                    fontSize: AppSizesText.headlineSmallFontSize.value,
                   ),
 
                   Padding(

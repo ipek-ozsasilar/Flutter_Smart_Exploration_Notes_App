@@ -36,7 +36,10 @@ enum AppSizesIcon {
   loginDoorIconSize(48),
   inputTextFormIconSize(20),
   flagIconSize(18),
-  homeBottomCardFlagIconSize(30);
+  homeBottomCardFlagIconSize(30),
+  categoryCardIconSize(24),
+  categoryCardIconContainerSize(56),
+  categoryCardArrowIconSize(20);
 
   final double value;
   const AppSizesIcon(this.value);
@@ -46,7 +49,8 @@ enum AppSizesText {
   phoneCodeInputItemFontSize(28),
   loginAndGoogleLoginButtonTextFontSize(16),
   bottomNavTextFontSize(10),
-  homeDiscoveriesValuesFontSize(22);
+  homeDiscoveriesValuesFontSize(22),
+  headlineSmallFontSize(24);
 
   final double value;
   const AppSizesText(this.value);

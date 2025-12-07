@@ -7,6 +7,7 @@ import 'package:smart_exploration_notes/core/presentation/widgets/slider_colorfu
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_cubix_animation.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/splash_linear_progress_indicator.dart';
+import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -43,7 +44,7 @@ class _SplashViewState extends State<SplashView> {
                 child: SplashCubixAnimation(),
               ),
               //Smart Exploration Notes Text
-              HeadlineSmallText( text: AppStringsEnum.smartExplorationNotes.value),
+              HeadlineSmallText( text: AppStringsEnum.smartExplorationNotes.value, fontSize: AppSizesText.headlineSmallFontSize.value),
 
               //Capture. Label. Rediscover. Text
               Padding(
