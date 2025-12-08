@@ -94,5 +94,11 @@ class AppGradients {
     ],
   );
 
+  LinearGradient mapsFloatingActionButtonGradient = LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: <Color>[AppColors.sliderBlue, AppColors.sliderGreen],
+        );
+
 
 }

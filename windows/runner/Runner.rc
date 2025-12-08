@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.ipekozsasilar" "\0"
             VALUE "FileDescription", "smart_exploration_notes" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "smart_exploration_notes" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 com.ipekozsasilar. All rights reserved." "\0"
             VALUE "OriginalFilename", "smart_exploration_notes.exe" "\0"
             VALUE "ProductName", "smart_exploration_notes" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

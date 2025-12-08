@@ -1,4 +1,4 @@
-package com.example.smart_exploration_notes
+package com.ipekozsasilar.smart_exploration_notes
 
 import io.flutter.embedding.android.FlutterActivity
 

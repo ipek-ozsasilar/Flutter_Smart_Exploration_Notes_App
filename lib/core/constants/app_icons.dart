@@ -5,6 +5,7 @@ class AppIcons {
   static final AppIcons instance = AppIcons._();
 
   IconData map = Icons.map_rounded;
+  IconData add = Icons.add_rounded;
   IconData label = Icons.label_rounded;
   IconData notificationsRounded = Icons.notifications_rounded;
   IconData capture = Icons.photo_camera_rounded;

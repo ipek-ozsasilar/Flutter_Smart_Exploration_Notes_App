@@ -66,7 +66,16 @@ enum AppStringsEnum {
   labels('Labels'),
   notify('Notify'),
   ai('AI'),
-  notes('Notes');
+  notes('Notes'),
+  notifications('Bildirimler'),
+  noNotifications('Şu an bildirim yok'),
+  capturePhoto('Resim Çek'),
+  takePhotoToSaveLocation('Yer kaydetmek için resim çekin'),
+  capturePhotoDescription(
+    'Fotoğraf çekin ve kaydetmek istediğiniz konumu kaydedin',
+  ),
+  takePhoto('Fotoğraf Çek'),
+  selectFromGallery('Galeriden Seç');
 
   final String value;
 

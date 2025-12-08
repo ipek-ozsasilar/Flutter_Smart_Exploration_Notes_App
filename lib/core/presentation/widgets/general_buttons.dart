@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
+import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/home_view.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/pages/map_view.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
+import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 
 class GeneralOutlinedIconButton extends StatelessWidget {
   const GeneralOutlinedIconButton({super.key});
@@ -124,6 +127,54 @@ class GeneralTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       child: Text(text, style: TextStyle(color: AppColors.sliderBlue)),
+    );
+  }
+}
+
+class FloatingActionButtonWidget extends StatelessWidget {
+  const FloatingActionButtonWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: AppSizesEnum.phoneCodeInputContainerHeight.value,
+      height: AppSizesEnum.phoneCodeInputContainerHeight.value,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: AppGradients.instance.mapsFloatingActionButtonGradient,
+        boxShadow: <BoxShadow>[_boxShadowMethod()],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const MapView(),
+              ),
+            );
+          },
+          borderRadius: BorderRadius.circular(AppSizesRadius.card.value),
+          child: IconWidget(
+            icon: AppIcons.instance.add,
+            color: AppColors.white,
+            size: AppSizesIcon.homeBottomCardFlagIconSize.value,
+          ),
+        ),
+      ),
+    );
+  }
+
+  BoxShadow _boxShadowMethod() {
+    final double blurRadius = 20;
+    final double spreadRadius = 2;
+    final Offset offset = const Offset(0, 8);
+    final Color color = AppColors.sliderBlue.withOpacity(0.5);
+    return BoxShadow(
+      color: color,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      offset: offset,
     );
   }
 }
