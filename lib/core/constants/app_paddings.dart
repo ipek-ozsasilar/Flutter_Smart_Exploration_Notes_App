@@ -92,4 +92,6 @@ class AppPaddings {
     vertical: 6,
   );
   static const EdgeInsets categoryCardArrowSpacing = EdgeInsets.only(top: 8);
+  static const EdgeInsets notificationsViewPadding = EdgeInsets.only(top: 24);
+  static const EdgeInsets notificationCardPadding = EdgeInsets.only(top: 4, bottom: 8);
 }

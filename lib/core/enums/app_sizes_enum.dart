@@ -7,7 +7,9 @@ enum AppSizesEnum {
   homeAnimationInnerDotSize(96),
   homeAnimationOrbitDotSize(8),
   phoneCodeInputContainerWidth(52),
-  phoneCodeInputContainerHeight(64);
+  phoneCodeInputContainerHeight(64),
+  notificationCardIconSize(40),
+  notificationCardMessageSize(12);
 
   final double value;
 

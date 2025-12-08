@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/google_maps_widget.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/maps_top_bar_widget.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/maps_notifications_top_bar_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
 
 /// Harita ekranı
@@ -30,7 +31,9 @@ class _MapViewState extends State<MapView> {
               /// Üst bar
               Padding(
                 padding: AppPaddings.orDividerPadding,
-                child: MapsTopBarWidget(),
+                child: MapsNotificationsTopBarWidget(
+                  title: AppStringsEnum.map.value,
+                ),
               ),
 
               /// İçerik - Google Maps

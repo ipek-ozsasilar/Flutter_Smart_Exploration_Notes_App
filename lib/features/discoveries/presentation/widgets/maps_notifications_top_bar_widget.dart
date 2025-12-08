@@ -6,8 +6,9 @@ import 'package:smart_exploration_notes/core/presentation/widgets/general_button
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
-class MapsTopBarWidget extends StatelessWidget {
-  const MapsTopBarWidget({super.key});
+class MapsNotificationsTopBarWidget extends StatelessWidget {
+  const MapsNotificationsTopBarWidget({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class MapsTopBarWidget extends StatelessWidget {
         Expanded(
           child: Center(
             child: HeadlineSmallText(
-              text: AppStringsEnum.map.value,
+              text: title,
               fontSize: AppSizesText.headlineSmallFontSize.value,
             ),
           ),
