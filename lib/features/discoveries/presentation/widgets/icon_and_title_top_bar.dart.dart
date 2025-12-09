@@ -6,8 +6,8 @@ import 'package:smart_exploration_notes/core/presentation/widgets/general_button
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
-class MapsNotificationsTopBarWidget extends StatelessWidget {
-  const MapsNotificationsTopBarWidget({super.key, required this.title});
+class IconAndTitleTopBarWidget extends StatelessWidget {
+  const IconAndTitleTopBarWidget({super.key, required this.title});
   final String title;
 
   @override

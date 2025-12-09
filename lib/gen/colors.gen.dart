@@ -53,6 +53,9 @@ class AppColors {
   /// Color: #FB7185
   static const Color indicatorColor = Color(0xFFFB7185);
 
+  /// Color: #FF0000
+  static const Color red = Color(0xFFFF0000);
+
   /// Color: #38BDF8
   static const Color sliderBlue = Color(0xFF38BDF8);
 

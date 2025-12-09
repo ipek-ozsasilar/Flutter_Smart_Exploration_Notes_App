@@ -7,12 +7,12 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/maps_notifications_top_bar_widget.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/notification_card.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/capture_view.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/icon_and_title_top_bar.dart.dart';
 
 /// Bildirim modeli (dummy data için)
 class NotificationItem {
@@ -75,9 +75,7 @@ class _NotificationsViewState extends State<NotificationsView> {
             crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
               /// Üst bar
-              MapsNotificationsTopBarWidget(
-                title: AppStringsEnum.notifications.value,
-              ),
+              IconAndTitleTopBarWidget(title: AppStringsEnum.notifications.value),
 
               /// İçerik - Bildirim Listesi
               Expanded(

@@ -4,8 +4,8 @@ import 'package:smart_exploration_notes/core/presentation/widgets/gradient_backg
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/google_maps_widget.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/maps_notifications_top_bar_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
+import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/icon_and_title_top_bar.dart.dart';
 
 /// Harita ekranı
 class MapView extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MapViewState extends State<MapView> {
               /// Üst bar
               Padding(
                 padding: AppPaddings.orDividerPadding,
-                child: MapsNotificationsTopBarWidget(
+                child: IconAndTitleTopBarWidget(
                   title: AppStringsEnum.map.value,
                 ),
               ),

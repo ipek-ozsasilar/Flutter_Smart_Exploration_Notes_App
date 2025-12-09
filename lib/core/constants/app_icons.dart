@@ -9,6 +9,8 @@ class AppIcons {
   IconData label = Icons.label_rounded;
   IconData notificationsRounded = Icons.notifications_rounded;
   IconData capture = Icons.photo_camera_rounded;
+  IconData gallery = Icons.photo_library_rounded;
+  IconData camera = Icons.photo_camera_rounded;
   IconData labels = Icons.tag_rounded;
   IconData notify = Icons.notifications_active_rounded;
   IconData arrowBack = Icons.arrow_back_ios_new_rounded;

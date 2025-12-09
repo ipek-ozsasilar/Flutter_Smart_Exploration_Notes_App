@@ -10,7 +10,8 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 
 class GeneralOutlinedIconButton extends StatelessWidget {
-  const GeneralOutlinedIconButton({super.key});
+  const GeneralOutlinedIconButton({super.key, required this.text});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,8 @@ class GeneralOutlinedIconButton extends StatelessWidget {
         );
       },
       icon: const Icon(Icons.g_mobiledata, color: Colors.white, size: 28),
-      label: const Text(
-        'Google ile Giriş Yap',
+      label: Text(
+        text,
         style: TextStyle(
           color: Colors.white,
           fontSize: 16,
@@ -200,6 +201,38 @@ class _GeneralIconButtonState extends State<GeneralIconButton> {
     return IconButton(
       icon: Icon(widget.icon, color: widget.color),
       onPressed: widget.onPressed,
+    );
+  }
+}
+
+/// Foto aksiyon butonu (tek tip)
+class PhotoActionButton extends StatelessWidget {
+  const PhotoActionButton({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+    this.backgroundColor,
+    this.foregroundColor,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback onPressed;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      icon: IconWidget(icon: icon, color: foregroundColor ?? AppColors.white, size: AppSizesIcon.flagIconSize.value),
+      label: Text(label),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor ?? AppColors.white.withOpacity(0.2),
+        foregroundColor: foregroundColor ?? AppColors.white,
+        padding: AppPaddings.bottomNavBarPadding,
+      ),
     );
   }
 }

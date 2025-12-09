@@ -1,7 +1,7 @@
 enum AppStringsEnum {
   smartExplorationNotes('Smart Exploration Notes'),
-  forgotPasswordTitle('Şifre Resetleme Kolaylaştı'),
-  forgotPasswordDescription('Mail kutuna güvenli bağlantı gelecek'),
+  forgotPasswordTitle('Password Reset Made Easy'),
+  forgotPasswordDescription('Secure link will be sent to your email'),
   email('Email'),
   password('Password'),
   welcome('Welcome'),
@@ -12,6 +12,9 @@ enum AppStringsEnum {
   discoveriesListViewTitle('Discoveries List View Title'),
   phoneVerificationCodeNotReceived('Code not received?'),
   verify('Verify'),
+  googleLogin('Google Login'),
+  retakePhoto('Retake Photo'),
+  savePhoto('Save Photo'),
   discoveriesListViewDescription(
     'View your discoveries grouped by tags as cards.',
   ),
@@ -67,17 +70,26 @@ enum AppStringsEnum {
   notify('Notify'),
   ai('AI'),
   notes('Notes'),
-  notifications('Bildirimler'),
-  noNotifications('Şu an bildirim yok'),
-  capturePhoto('Resim Çek'),
-  takePhotoToSaveLocation('Yer kaydetmek için resim çekin'),
+  notifications('Notifications'),
+  noNotifications('No notifications'),
+  capturePhoto('Take a photo'),
+  takePhotoToSaveLocation('Take a photo to save the location'),
   capturePhotoDescription(
-    'Fotoğraf çekin ve kaydetmek istediğiniz konumu kaydedin',
+    'Take a photo and save the location you want to save',
   ),
-  takePhoto('Fotoğraf Çek'),
-  selectFromGallery('Galeriden Seç');
+  takePhoto('Take a photo'),
+  selectFromGallery('Select from gallery');
 
   final String value;
 
   const AppStringsEnum(this.value);
+}
+
+enum AppErrorStringsEnum {
+  cameraError('error while capturing image'),
+  galleryError('error while selecting image from gallery');
+
+  final String value;
+
+  const AppErrorStringsEnum(this.value);
 }

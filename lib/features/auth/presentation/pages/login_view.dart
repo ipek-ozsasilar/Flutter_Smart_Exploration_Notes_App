@@ -109,7 +109,7 @@ class _LoginViewState extends State<LoginView> {
                   //google login button
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 10),
-                    child: GeneralOutlinedIconButton(),
+                    child: GeneralOutlinedIconButton(text: AppStringsEnum.googleLogin.value),
                   ),
 
                   //do you have an account text and register text button

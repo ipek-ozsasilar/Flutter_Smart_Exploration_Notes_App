@@ -26,7 +26,8 @@ enum AppSizesRadius {
   card(32),
   button(16),
   cube(20),
-  chip(8);
+  chip(8),
+  cameraPlaceholderIconSize(96);
 
   final double value;
   const AppSizesRadius(this.value);
@@ -36,6 +37,7 @@ enum AppSizesIcon {
   homeAnimationCenterIconSize(28),
   splashCubixAnimationIcon(40),
   loginDoorIconSize(48),
+  cameraPlaceholderIconSize(56),
   inputTextFormIconSize(20),
   flagIconSize(18),
   homeBottomCardFlagIconSize(30),
