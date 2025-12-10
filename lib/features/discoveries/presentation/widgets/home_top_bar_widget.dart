@@ -13,7 +13,6 @@ class HomeTopBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start;
     final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
-    final FontWeight fontWeight = FontWeight.w700;
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: <Widget>[
@@ -21,7 +20,10 @@ class HomeTopBarWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
-              HeadlineSmallText(text: AppStringsEnum.discoveries.value, fontSize: AppSizesText.headlineSmallFontSize.value),
+              HeadlineSmallText(
+                text: AppStringsEnum.discoveries.value,
+                fontSize: AppSizesText.headlineSmallFontSize.value,
+              ),
               Padding(
                 padding: AppPaddings.heroStatCardSubtitlePadding,
                 child: BodyMediumText(

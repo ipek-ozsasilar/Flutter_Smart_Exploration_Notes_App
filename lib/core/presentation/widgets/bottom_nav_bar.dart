@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -9,7 +9,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/notifications_view.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/map_view.dart';
 
-/// Bottom navigation bar widget'ı
+/// Bottom navigation bar widget'Ä±
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key, this.selectedIndex});
   final int? selectedIndex;
@@ -56,7 +56,7 @@ class BottomNavBar extends StatelessWidget {
                   ),
                 ),
 
-                // Ortadaki + butonu için boşluk
+                // Ortadaki + butonu iÃ§in boÅŸluk
                 const SizedBox(width: 80),
 
                 Expanded(
@@ -88,7 +88,7 @@ class BottomNavBar extends StatelessWidget {
   }
 
   BoxShadow _bottomNavBoxDecorationMethod() {
-    final Color color = AppColors.black.withOpacity(0.4);
+    final Color color = AppColors.black.withValues(alpha: 0.4);
     final Offset offset = const Offset(0, -8);
     final double blurRadius = 25;
     return BoxShadow(color: color, blurRadius: blurRadius, offset: offset);
@@ -111,17 +111,18 @@ class BottomNavBar extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
           color: isActive
-              ? AppColors.sliderBlue.withOpacity(0.25)
+              ? AppColors.sliderBlue.withValues(alpha: 0.25)
               : Colors.transparent,
         ),
         child: IconWidget(
           icon: isActive ? activeIcon : icon,
           color: isActive
               ? AppColors.sliderBlue
-              : AppColors.white.withOpacity(0.7),
+              : AppColors.white.withValues(alpha: 0.7),
           size: AppSizesIcon.inputTextFormIconSize.value,
         ),
       ),
     );
   }
 }
+

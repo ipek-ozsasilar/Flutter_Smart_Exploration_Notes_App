@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
@@ -11,7 +11,7 @@ class NotificationCard extends StatelessWidget {
   NotificationCard({required this.notification, super.key});
   final NotificationItem notification;
   final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
-  final Color color = AppColors.white.withOpacity(0.2);
+  final Color color = AppColors.white.withValues(alpha: 0.2);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +36,7 @@ class NotificationCard extends StatelessWidget {
             ),
           ),
 
-          /// Bildirim içeriği
+          /// Bildirim iÃ§eriÄŸi
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class NotificationCard extends StatelessWidget {
             ),
           ),
 
-          /// Okunmamış bildirim göstergesi
+          /// OkunmamÄ±ÅŸ bildirim gÃ¶stergesi
           if (!notification.isRead)
             Container(
               width: AppSizesEnum.homeAnimationOrbitDotSize.value,
@@ -74,9 +74,9 @@ class NotificationCard extends StatelessWidget {
   }
 
   BoxDecoration _boxDecoration() {
-    final Color color = AppColors.white.withOpacity(0.1);
-    final Color color2 = AppColors.white.withOpacity(0.2);
-    final Color borderColor = AppColors.white.withOpacity(0.3);
+    final Color color = AppColors.white.withValues(alpha: 0.1);
+    final Color color2 = AppColors.white.withValues(alpha: 0.2);
+    final Color borderColor = AppColors.white.withValues(alpha: 0.3);
     final double borderWidth = 1;
     return BoxDecoration(
       color: notification.isRead ? color : color2,
@@ -107,3 +107,4 @@ class NotificationCard extends StatelessWidget {
     }
   }
 }
+

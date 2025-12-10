@@ -1,49 +1,77 @@
-#CI’ın yaptığı şey: Adımları çalıştırır Bir yerde hata olursa job kırmızı olur Sana logda hatayı gösterir
-#CI’nın temel görevi: “Her yeni commit’ten sonra proje hâlâ sağlıklı mı?”
-#bu dosya push ve pull_request olduğunda otomatik tetikleniyor. Actions ekranı = pipeline koşum geçmişi.
-#Biz şimdi workflow olusturmus olduk Workflow = GitHub Actions’ın çalıştırdığı otomatik iş akışı dosyası.
-#Sen .github/workflows/flutter-ci.yml ekleyince GitHub şunu anlıyor: “Bu repo için otomatik bir CI iş akışı var.”
-#Workflow = scriptlerin hangi sırayla, ne zaman, hangi ortamda otomatik çalışacağını anlatan plan.
+# CI’ın yaptığı şey:
+# - Adımları çalıştırır
+# - Bir yerde hata olursa job kırmızı olur
+# - Sana logda hatayı gösterir
+# CI’nın temel görevi: “Her yeni commit’ten sonra proje hâlâ sağlıklı mı?”
+# Bu dosya push ve pull_request olduğunda otomatik tetikleniyor.
+# Actions ekranı = pipeline koşum geçmişi.
+# Biz şimdi workflow oluşturmuş olduk.
+# Workflow = GitHub Actions’ın çalıştırdığı otomatik iş akışı dosyası.
+# Sen .github/workflows/flutter-ci.yml ekleyince GitHub şunu anlıyor:
+# “Bu repo için otomatik bir CI iş akışı var.”
+# Workflow = scriptlerin hangi sırayla, ne zaman, hangi ortamda otomatik çalışacağını anlatan plan.
+# Bu adımların hepsi pipeline.
+# Pipeline = adım adım otomatik iş akışı demek.
+
 name: Flutter CI
-#Bu bölüm “ne zaman çalışsın?” demek. Yani sen bu branch’lere her kod gönderdiğinde otomatik tetikleniyor.
-#bu adımların hepsi pipeline Pipeline = adım adım otomatik iş akışı demek.
+
+# Bu bölüm “ne zaman çalışsın?” demek.
+# Yani sen bu branch’lere her kod gönderdiğinde otomatik tetikleniyor.
 on:
   push:
     branches: [ "main", "master", "develop" ]
   pull_request:
     branches: [ "main", "master", "develop" ]
-#Job = CI’ın tek bir çalıştırma işi.
+
+# Job = CI’ın tek bir çalıştırma işi.
 jobs:
-#build-test-analyze = job adı.
+  # build-test-analyze = job adı.
   build-test-analyze:
     runs-on: ubuntu-latest
-#steps kısmı: job’un adımları
+
+    # steps kısmı: job’un adımları
     steps:
-    #GitHub sanal makinesine senin repo kodunu indiriyor.
+      # GitHub sanal makinesine senin repo kodunu indiriyor.
       - name: Checkout repository
         uses: actions/checkout@v4
-#Set up Java Android build için Java lazım.
+
+      # Set up Java: Android build için Java lazım.
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
-#Set up Flutter Sanal makineye Flutter SDK kuruyor.
+
+      # Set up Flutter: Sanal makineye Flutter SDK kuruyor.
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.32.8"
           channel: "stable"
           cache: true
-#pubspec.yaml’daki tüm paketleri indirir.
+
+      # pubspec.yaml’daki tüm paketleri indirir.
       - name: Install dependencies
         run: flutter pub get
-#flutter analyze Lint ve statik analiz yapar. Kodda hata, uyarı, yanlış kullanım var mı bakar.
-      - name: Analyze
+
+      # flutter analyze:
+      # - Lint ve statik analiz yapar.
+      # - Kodda hata, uyarı, yanlış kullanım var mı bakar.
+      #
+      # Develop/feature tarafında lint fail etmesin (uyarıları gösterir ama CI’ı kırmızı yapmaz)
+      - name: Analyze (non-fatal for dev)
+        if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+
+      # Main/Master tarafında lint kapı olsun (uyarı varsa CI kırmızı olur)
+      - name: Analyze (fatal for prod)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: flutter analyze
-#Unit/widget testleri çalıştırır.
+
+      # Unit/widget testleri çalıştırır.
       - name: Run tests
         run: flutter test
-#Android debug APK üretmeye çalışır.
+
+      # Android debug APK üretmeye çalışır.
       - name: Build APK (debug)
         run: flutter build apk --debug

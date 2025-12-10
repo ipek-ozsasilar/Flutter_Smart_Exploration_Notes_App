@@ -1,4 +1,4 @@
-import 'package:cubixd/cubixd.dart';
+﻿import 'package:cubixd/cubixd.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -19,7 +19,7 @@ class SplashCubixAnimation extends StatelessWidget {
       child: AnimatedCubixD(
         size: AppSizesEnum.splashViewCubeSize.value,
         onSelected: (_) => true,
-        //küpün yüzlerine çzilen kartlar mesela front ön yüzü
+        //kÃ¼pÃ¼n yÃ¼zlerine Ã§zilen kartlar mesela front Ã¶n yÃ¼zÃ¼
         front: _SplashCubeFace(
           icon: AppIcons.instance.map,
           color: AppColors.sliderGreen,
@@ -70,13 +70,14 @@ class _SplashCubeFace extends StatelessWidget {
   final Offset offset = const Offset(0, 8);
   final FontWeight fontWeight = FontWeight.w600;
 
-  LinearGradient CubeLinearGradient(Color color) {
-    return LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: <Color>[color.withOpacity(0.95), color.withOpacity(0.7)],
-    );
-  }
+  LinearGradient _cubeLinearGradient(Color color) => LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[
+          color.withValues(alpha: 0.95),
+          color.withValues(alpha: 0.7),
+        ],
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +86,10 @@ class _SplashCubeFace extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSizesRadius.cube.value),
-          gradient: CubeLinearGradient(color),
+          gradient: _cubeLinearGradient(color),
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: color.withOpacity(0.35),
+              color: color.withValues(alpha: 0.35),
               blurRadius: AppSizesRadius.button.value,
               offset: offset,
             ),
@@ -112,3 +113,4 @@ class _SplashCubeFace extends StatelessWidget {
     );
   }
 }
+

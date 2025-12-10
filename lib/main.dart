@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:smart_exploration_notes/features/auth/presentation/pages/forgot_password_view.dart';
-import 'package:smart_exploration_notes/features/auth/presentation/pages/register_view.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/pages/capture_view.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/pages/home_view.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/pages/map_view.dart';
 import 'package:smart_exploration_notes/service_locator/service_locator.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/pages/notifications_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

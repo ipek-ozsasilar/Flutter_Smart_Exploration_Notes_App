@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
@@ -31,40 +31,37 @@ class _CodeRepeatSendRowWidgetState extends State<CodeRepeatSendRowWidget> {
   @override
   Widget build(BuildContext context) {
     final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-    return Container(
-      child: Row(
-        mainAxisAlignment: mainAxisAlignment,
-        children: <Widget>[
-          BodyMediumText(
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      children: <Widget>[
+        BodyMediumText(
+          text: AppStringsEnum.phoneVerificationCodeNotReceived.value,
+        ),
+        if (_countdown > 0)
+          _timeContainer(context)
+        else
+          GeneralTextButton(
             text: AppStringsEnum.phoneVerificationCodeNotReceived.value,
-          ),
-          if (_countdown > 0)
-            _TimeContainerWidget(context)
-          else
-            GeneralTextButton(
-              text: AppStringsEnum.phoneVerificationCodeNotReceived.value,
-              onPressed: _isResending
-                  ? () {}
-                  : () {
+            onPressed: _isResending
+                ? () {}
+                : () {
+                    setState(() {
+                      _isResending = true;
+                      _countdown = 60;
+                    });
+                    Future<void>.delayed(const Duration(seconds: 2), () {
                       setState(() {
-                        _isResending = true;
-                        _countdown = 60;
+                        _isResending = false;
                       });
-                      Future<void>.delayed(const Duration(seconds: 2), () {
-                        setState(() {
-                          _isResending = false;
-                        });
-                      });
-                    },
-            ),
-        ],
-      ),
+                    });
+                  },
+          ),
+      ],
     );
   }
 
-  Container _TimeContainerWidget(BuildContext context) {
-    final Color color = Colors.white.withOpacity(0.1);
-    final FontWeight fontWeight = FontWeight.w600;
+  Container _timeContainer(BuildContext context) {
+    final Color color = Colors.white.withValues(alpha: 0.1);
     return Container(
       padding: AppPaddings.codeRepeatRowTimeContainerPadding,
       decoration: BoxDecoration(
@@ -75,3 +72,4 @@ class _CodeRepeatSendRowWidgetState extends State<CodeRepeatSendRowWidget> {
     );
   }
 }
+

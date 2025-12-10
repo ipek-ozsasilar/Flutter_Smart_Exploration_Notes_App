@@ -59,20 +59,20 @@ class _CapturePreviewWidgetState extends State<CapturePreviewWidget> {
                                   );
 
                           /// Seçilen/çekilen görsel varsa state'e yaz
-                          if (image != null && mounted) {
+                          if (!mounted) return;
+                          if (image != null) {
                             setState(() {
                               _capturedImage = File(image.path);
                             });
                           }
                         } catch (e) {
-                          if (mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: BodyMediumText(text: e.toString()),
-                                backgroundColor: AppColors.red,
-                              ),
-                            );
-                          }
+                          if (!mounted) return;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: BodyMediumText(text: e.toString()),
+                              backgroundColor: AppColors.red,
+                            ),
+                          );
                         }
                       },
                     ),
@@ -96,20 +96,20 @@ class _CapturePreviewWidgetState extends State<CapturePreviewWidget> {
                                   );
 
                           /// Seçilen/çekilen görsel varsa state'e yaz
-                          if (image != null && mounted) {
+                          if (!mounted) return;
+                          if (image != null) {
                             setState(() {
                               _capturedImage = File(image.path);
                             });
                           }
                         } catch (e) {
-                          if (mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: BodyMediumText(text: e.toString()),
-                                backgroundColor: AppColors.red,
-                              ),
-                            );
-                          }
+                          if (!mounted) return;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: BodyMediumText(text: e.toString()),
+                              backgroundColor: AppColors.red,
+                            ),
+                          );
                         }
                       },
                     ),

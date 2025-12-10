@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
@@ -18,7 +18,6 @@ class HomeBottomCardWidget extends StatefulWidget {
 class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
   // Geçici dummy değerler - ileride gerçek keşif verisi ile beslenecek
   final int _discoveryCount = 0;
-  double _progress = 0.0;
   double _goalSliderValue =
       10; // kullanıcı hedef slider değeri (keşif) - min değer ile başlat
   int goalDiscovery = 10; // hedef keşif sayısı
@@ -34,19 +33,9 @@ class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
 
   void _calculateProgress() {
     // Hedefe göre tamamlanma yüzdesi hesapla
-    //_discoveryCount suana kadara yapılan toplam kesıf sayısı
-    //goalDiscovery hedef kesıf sayısı
+    //_discoveryCount suana kadara yapılan toplam keşif sayısı
+    //goalDiscovery hedef keşif sayısı
     goalDiscovery = _goalSliderValue.round();
-    if (goalDiscovery <= 0 || _discoveryCount <= 0) {
-      _progress = 0;
-    } else {
-      //clamp() metodu, bir değeri belirli bir aralıkta tutar.
-      //minden küçük değerleri 0.0,  büyük değerleri 1.0 olarak tutar. arasında olan degerı dırekt alır
-      _progress = (_discoveryCount / goalDiscovery).clamp(
-        0.0,
-        1.0,
-      ); // 0-1 arası
-    }
   }
 
   @override
@@ -55,7 +44,7 @@ class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
       width: double.infinity,
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
       decoration: BoxDecoration(
-        color: AppColors.homeBottomCardBackground.withOpacity(0.85),
+        color: AppColors.homeBottomCardBackground.withValues(alpha: 0.85),
         borderRadius: BorderRadius.circular(AppSizesRadius.card.value),
         boxShadow: <BoxShadow>[_homeBottomCardDecoration()],
       ),
@@ -74,7 +63,7 @@ class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
                 width: AppSizesIcon.homeBottomCardFlagIconSize.value,
                 height: AppSizesIcon.homeBottomCardFlagIconSize.value,
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.08),
+                  color: AppColors.white.withValues(alpha: 0.08),
                   shape: BoxShape.circle,
                 ),
                 child: IconWidget(
@@ -124,7 +113,7 @@ class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
         thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
         overlayShape: SliderComponentShape.noOverlay,
         activeTrackColor: const Color(0xFF38BDF8),
-        inactiveTrackColor: Colors.white.withOpacity(0.2),
+        inactiveTrackColor: Colors.white.withValues(alpha: 0.2),
       ),
       child: Slider(
         min: min.toDouble(),
@@ -143,9 +132,10 @@ class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
   }
 
   BoxShadow _homeBottomCardDecoration() {
-    final Color color = Colors.black.withOpacity(0.35);
+    final Color color = Colors.black.withValues(alpha: 0.35);
     final double blurRadius = 30;
     final Offset offset = const Offset(0, 16);
     return BoxShadow(color: color, blurRadius: blurRadius, offset: offset);
   }
 }
+

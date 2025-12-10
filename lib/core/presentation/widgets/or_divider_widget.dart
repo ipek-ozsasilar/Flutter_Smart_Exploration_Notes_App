@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
@@ -10,19 +10,20 @@ class OrDividerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _DividerMethod(),
+        _divider(),
         Padding(
           padding: AppPaddings.orDividerPadding,
-          child: BodyMediumText(text: AppStringsEnum.or.value)
+          child: BodyMediumText(text: AppStringsEnum.or.value),
         ),
-        _DividerMethod(),
+        _divider(),
       ],
     );
   }
 
-  Expanded _DividerMethod() {
-    return Expanded(
-        child: Divider(color: AppColors.white.withOpacity(0.3), thickness: 1),
+  Expanded _divider() => Expanded(
+        child: Divider(
+          color: AppColors.white.withValues(alpha: 0.3),
+          thickness: 1,
+        ),
       );
-  }
 }

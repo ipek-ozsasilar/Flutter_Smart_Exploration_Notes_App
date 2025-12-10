@@ -80,16 +80,16 @@ enum AppStringsEnum {
   takePhoto('Take a photo'),
   selectFromGallery('Select from gallery');
 
-  final String value;
-
   const AppStringsEnum(this.value);
+
+  final String value;
 }
 
 enum AppErrorStringsEnum {
   cameraError('error while capturing image'),
   galleryError('error while selecting image from gallery');
 
-  final String value;
-
   const AppErrorStringsEnum(this.value);
+
+  final String value;
 }

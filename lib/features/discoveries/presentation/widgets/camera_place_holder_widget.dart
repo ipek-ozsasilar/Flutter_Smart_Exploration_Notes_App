@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
@@ -13,7 +13,7 @@ import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 class CameraPlaceholderWidget extends StatefulWidget {
   const CameraPlaceholderWidget({required this.onImagePicked, super.key});
 
-  /// Üst widget'a seçilen/çekilen resmi iletir
+  /// Ãœst widget'a seÃ§ilen/Ã§ekilen resmi iletir
   final ValueChanged<File> onImagePicked;
 
   @override
@@ -23,7 +23,7 @@ class CameraPlaceholderWidget extends StatefulWidget {
 
 class _CameraPlaceholderWidgetState extends State<CameraPlaceholderWidget> {
   final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-  final Color color = AppColors.white.withOpacity(0.9);
+  final Color color = AppColors.white.withValues(alpha: 0.9);
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -37,7 +37,7 @@ class _CameraPlaceholderWidgetState extends State<CameraPlaceholderWidget> {
               width: AppSizesRadius.cameraPlaceholderIconSize.value,
               height: AppSizesRadius.cameraPlaceholderIconSize.value,
               decoration: BoxDecoration(
-                color: AppColors.white.withOpacity(0.15),
+                color: AppColors.white.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: IconWidget(
@@ -47,7 +47,7 @@ class _CameraPlaceholderWidgetState extends State<CameraPlaceholderWidget> {
               ),
             ),
 
-            /// Açıklama metni
+            /// AÃ§Ä±klama metni
             Padding(
               padding: AppPaddings.cameraPlaceholderPadding,
               child: NormalText(
@@ -85,3 +85,4 @@ class _CameraPlaceholderWidgetState extends State<CameraPlaceholderWidget> {
     );
   }
 }
+

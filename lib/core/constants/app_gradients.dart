@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
-/// Projenin genel arka plan gradyanları.
+/// Projenin genel arka plan gradyanlarÄ±.
 class AppGradients {
   AppGradients._();
   static final AppGradients instance = AppGradients._();
@@ -26,7 +26,7 @@ class AppGradients {
   );
 
   RadialGradient loginViewGradient = RadialGradient(
-    colors: <Color>[AppColors.sliderBlue.withOpacity(0.15), Colors.transparent],
+    colors: <Color>[AppColors.sliderBlue.withValues(alpha: 0.15), Colors.transparent],
   );
 
   LinearGradient loginSliderColorfulContainerGradient = LinearGradient(
@@ -37,8 +37,8 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[
-      AppColors.sliderBlue.withOpacity(0.3),
-      AppColors.sliderGreen.withOpacity(0.2),
+      AppColors.sliderBlue.withValues(alpha: 0.3),
+      AppColors.sliderGreen.withValues(alpha: 0.2),
     ],
   );
 
@@ -50,8 +50,8 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[
-      AppColors.sliderOrange.withOpacity(0.3),
-      AppColors.cubixRed.withOpacity(0.2),
+      AppColors.sliderOrange.withValues(alpha: 0.3),
+      AppColors.cubixRed.withValues(alpha: 0.2),
     ],
   );
 
@@ -75,8 +75,8 @@ class AppGradients {
     end: Alignment.bottomRight,
     colors: <Color>[
       AppColors.sliderBlue,
-      AppColors.sliderBlue.withOpacity(0.7),
-      AppColors.sliderGreen.withOpacity(0.3),
+      AppColors.sliderBlue.withValues(alpha: 0.7),
+      AppColors.sliderGreen.withValues(alpha: 0.3),
     ],
   );
 
@@ -89,8 +89,8 @@ class AppGradients {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[
-      Colors.white.withOpacity(0.15),
-      Colors.white.withOpacity(0.08),
+      Colors.white.withValues(alpha: 0.15),
+      Colors.white.withValues(alpha: 0.08),
     ],
   );
 
@@ -102,3 +102,4 @@ class AppGradients {
 
 
 }
+

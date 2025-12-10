@@ -1,12 +1,12 @@
-import 'dart:math' as math;
+﻿import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:smart_exploration_notes/core/constants/app_durations.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
+import 'package:smart_exploration_notes/core/constants/app_durations.dart';
 
 class HomeAnimationWidget extends StatelessWidget {
   const HomeAnimationWidget({super.key});
@@ -19,12 +19,12 @@ class HomeAnimationWidget extends StatelessWidget {
       height: AppSizesEnum.splashViewCubeOuterSize.value,
       width: AppSizesEnum.splashViewCubeOuterSize.value,
       child: AnimatedContainer(
-        duration: AppDurations.HomeAnimationDuration,
+        duration: AppDurations.instance.homeAnimationDuration,
         curve: curve,
         child: SizedBox(
           width: AppSizesEnum.splashViewCubeSize.value,
           height: AppSizesEnum.splashViewCubeSize.value,
-          //AnimatedBuilder, animasyon değerleri değiştiğinde widget ağacının yalnızca belirli bir bölümünü yeniden çizer.
+          //AnimatedBuilder, animasyon deÄŸerleri deÄŸiÅŸtiÄŸinde widget aÄŸacÄ±nÄ±n yalnÄ±zca belirli bir bÃ¶lÃ¼mÃ¼nÃ¼ yeniden Ã§izer.
           child: const PulseEffectWidget(),
         ),
       ),
@@ -48,8 +48,8 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: AppDurations.HomeAnimationControllerDuration,
-      //repeat() animasyonu döngüye alır ve durdurulana kadar tekrarlar.
+      duration: AppDurations.instance.homeAnimationControllerDuration,
+      //repeat() animasyonu dÃ¶ngÃ¼ye alÄ±r ve durdurulana kadar tekrarlar.
     )..repeat();
   }
 
@@ -61,20 +61,20 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
       builder: (BuildContext context, Widget? child) {
         //t animasyonun ilerlemesini temsil eder
         final double t = _controller.value;
-        //Sinüs fonksiyonu dalga üretir. t * 2 * math.pi0 dan 2*pi'ye kadar tam bir dalga
-        //Sinüs değerleri: -1.0 ile +1.0 arası 0.05 * math.sin(...) Sinüs değerini 0.05 ile çarparız
-        //Sonuç: -0.05 ile +0.05 arası 1'e ekleriz  0.95 ile 1.05 arası (ölçek değeri)
-        //Bu matematiksel işlem, widget'ın sürekli olarak %5 oranında büyüyüp küçülmesini sağlayarak pulse/nefes alma efektini oluşturur.
+        //SinÃ¼s fonksiyonu dalga Ã¼retir. t * 2 * math.pi0 dan 2*pi'ye kadar tam bir dalga
+        //SinÃ¼s deÄŸerleri: -1.0 ile +1.0 arasÄ± 0.05 * math.sin(...) SinÃ¼s deÄŸerini 0.05 ile Ã§arparÄ±z
+        //SonuÃ§: -0.05 ile +0.05 arasÄ± 1'e ekleriz  0.95 ile 1.05 arasÄ± (Ã¶lÃ§ek deÄŸeri)
+        //Bu matematiksel iÅŸlem, widget'Ä±n sÃ¼rekli olarak %5 oranÄ±nda bÃ¼yÃ¼yÃ¼p kÃ¼Ã§Ã¼lmesini saÄŸlayarak pulse/nefes alma efektini oluÅŸturur.
         final double pulseScale = 1 + 0.05 * math.sin(t * 2 * math.pi);
 
-        //Transform.scale, widget'ı merkez noktasından belirtilen oranda büyütür veya küçültür.
-        // Kodunuzda pulseScale değeriyle sürekli büyüyüp küçülen bir pulse efekti oluşturuluyor.
+        //Transform.scale, widget'Ä± merkez noktasÄ±ndan belirtilen oranda bÃ¼yÃ¼tÃ¼r veya kÃ¼Ã§Ã¼ltÃ¼r.
+        // Kodunuzda pulseScale deÄŸeriyle sÃ¼rekli bÃ¼yÃ¼yÃ¼p kÃ¼Ã§Ã¼len bir pulse efekti oluÅŸturuluyor.
         return Transform.scale(
           scale: pulseScale,
           child: Stack(
             alignment: alignment,
             children: <Widget>[
-              // Dış halka (yumuşak glow)
+              // DÄ±ÅŸ halka (yumuÅŸak glow)
               Container(
                 width: AppSizesEnum.splashViewCubeSize.value,
                 height: AppSizesEnum.splashViewCubeSize.value,
@@ -84,7 +84,7 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
                 ),
               ),
 
-              // Dönen gradient halka
+              // DÃ¶nen gradient halka
               Transform.rotate(
                 angle: t * 2 * math.pi,
                 child: Container(
@@ -97,7 +97,7 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
                 ),
               ),
 
-              // İç koyu daire
+              // Ä°Ã§ koyu daire
               Container(
                 width: AppSizesEnum.homeAnimationInnerDotSize.value,
                 height: AppSizesEnum.homeAnimationInnerDotSize.value,
@@ -119,7 +119,7 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
                 ),
               ),
 
-              // Küçük dönen noktalar (marker hissi)
+              // KÃ¼Ã§Ã¼k dÃ¶nen noktalar (marker hissi)
               _buildOrbitDot(
                 angle: t * 2 * math.pi,
                 radius: AppSizesRadius.homeAnimationOrbitDotRadius.value,
@@ -141,7 +141,7 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
 
   BoxDecoration _insideCircleBoxDecorationMethod() {
     final Offset offset = Offset(0, AppSizesRadius.cube.value);
-    final Color color = AppColors.black.withOpacity(0.35);
+    final Color color = AppColors.black.withValues(alpha: 0.35);
     return BoxDecoration(
       shape: BoxShape.circle,
       gradient: AppGradients.instance.homeAnimationInnerDotGradient,
@@ -162,7 +162,7 @@ class _PulseEffectWidgetState extends State<PulseEffectWidget>
         width: AppSizesEnum.homeAnimationOrbitDotSize.value,
         height: AppSizesEnum.homeAnimationOrbitDotSize.value,
         decoration: BoxDecoration(
-          color: AppColors.white.withOpacity(0.85),
+          color: AppColors.white.withValues(alpha: 0.85),
           shape: BoxShape.circle,
         ),
       ),

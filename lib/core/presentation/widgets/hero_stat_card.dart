@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
-/// Auth ve diğer ekranlarda kullanılan küçük bilgi kartı.
+/// Auth ve diÄŸer ekranlarda kullanÄ±lan kÃ¼Ã§Ã¼k bilgi kartÄ±.
 class HeroStatCard extends StatelessWidget {
   HeroStatCard({
     required this.title, required this.subtitle, required this.icon, super.key,
@@ -16,7 +16,7 @@ class HeroStatCard extends StatelessWidget {
   final String subtitle;
   final IconData icon;
   final List<Color>? colors;
-  final Color color = Colors.white.withOpacity(0.12);
+  final Color color = Colors.white.withValues(alpha: 0.12);
   final FontWeight fontWeight = FontWeight.w700;
   final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
   @override
@@ -71,7 +71,7 @@ class HeroStatCard extends StatelessWidget {
   BoxShadow _boxShadowMethod() {
     final List<Color> gradientColors =
         colors ?? [AppColors.sliderBlue, AppColors.sliderGreen];
-    final Color color = gradientColors.last.withOpacity(0.35);
+    final Color color = gradientColors.last.withValues(alpha: 0.35);
     final Offset offset = const Offset(0, 12);
 
     return BoxShadow(
@@ -81,3 +81,4 @@ class HeroStatCard extends StatelessWidget {
     );
   }
 }
+

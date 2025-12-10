@@ -1,7 +1,6 @@
-
 class AppDurations {
   AppDurations._();
   static final AppDurations instance = AppDurations._();
-  static const Duration HomeAnimationDuration = Duration(milliseconds: 300);
-    static const Duration HomeAnimationControllerDuration = Duration(seconds: 6);
+  Duration homeAnimationDuration = Duration(milliseconds: 300);
+  Duration homeAnimationControllerDuration = Duration(seconds: 6);
 }

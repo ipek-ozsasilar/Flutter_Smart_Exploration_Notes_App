@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -12,7 +12,7 @@ import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/icon_and_title_top_bar.dart.dart';
 
-/// Bildirim modeli (dummy data için)
+/// Bildirim modeli (dummy data iÃ§in)
 class NotificationItem {
 
   NotificationItem({
@@ -29,7 +29,7 @@ class NotificationItem {
   final bool isRead;
 }
 
-/// Bildirimler ekranı
+/// Bildirimler ekranÄ±
 class NotificationsView extends StatefulWidget {
   const NotificationsView({super.key});
 
@@ -42,22 +42,22 @@ class _NotificationsViewState extends State<NotificationsView> {
   final List<NotificationItem> _notifications = <NotificationItem>[
     NotificationItem(
       id: '1',
-      title: 'Yeni Keşif Hatırlatması',
-      message: 'İstanbul\'daki keşif noktanıza yaklaşıyorsunuz',
+      title: 'Yeni KeÅŸif HatÄ±rlatmasÄ±',
+      message: 'Ä°stanbul\'daki keÅŸif noktanÄ±za yaklaÅŸÄ±yorsunuz',
       date: DateTime.now().subtract(const Duration(hours: 2)),
       isRead: false,
     ),
     NotificationItem(
       id: '2',
-      title: 'Keşif Tamamlandı',
-      message: 'Galata Kulesi keşfiniz başarıyla kaydedildi',
+      title: 'KeÅŸif TamamlandÄ±',
+      message: 'Galata Kulesi keÅŸfiniz baÅŸarÄ±yla kaydedildi',
       date: DateTime.now().subtract(const Duration(days: 1)),
       isRead: true,
     ),
     NotificationItem(
       id: '3',
-      title: 'Yeni Keşif Hatırlatması',
-      message: 'Topkapı Sarayı Müzesi\'ne yaklaşıyorsunuz',
+      title: 'Yeni KeÅŸif HatÄ±rlatmasÄ±',
+      message: 'TopkapÄ± SarayÄ± MÃ¼zesi\'ne yaklaÅŸÄ±yorsunuz',
       date: DateTime.now().subtract(const Duration(days: 2)),
       isRead: false,
     ),
@@ -72,10 +72,10 @@ class _NotificationsViewState extends State<NotificationsView> {
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
-              /// Üst bar
+              /// Ãœst bar
               IconAndTitleTopBarWidget(title: AppStringsEnum.notifications.value),
 
-              /// İçerik - Bildirim Listesi
+              /// Ä°Ã§erik - Bildirim Listesi
               Expanded(
                 child: Padding(
                   padding: AppPaddings.notificationsViewPadding,
@@ -95,10 +95,10 @@ class _NotificationsViewState extends State<NotificationsView> {
     );
   }
 
-  /// Bildirim yoksa gösterilecek boş durum widget'ı
+  /// Bildirim yoksa gÃ¶sterilecek boÅŸ durum widget'Ä±
   Widget _buildEmptyState() {
     final MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-    final Color color = AppColors.white.withOpacity(0.5);
+    final Color color = AppColors.white.withValues(alpha: 0.5);
     return Center(
       child: Column(
         mainAxisAlignment: mainAxisAlignment,
@@ -121,7 +121,7 @@ class _NotificationsViewState extends State<NotificationsView> {
     );
   }
 
-  /// Bildirim listesi widget'ı
+  /// Bildirim listesi widget'Ä±
   Widget _buildNotificationsList() {
     return ListView.builder(
       padding: AppPaddings.orDividerPadding,
@@ -133,3 +133,4 @@ class _NotificationsViewState extends State<NotificationsView> {
     );
   }
 }
+

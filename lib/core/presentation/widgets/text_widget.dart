@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
@@ -21,7 +21,7 @@ class LabelMediumOpacityText extends StatelessWidget {
   LabelMediumOpacityText({required this.text, super.key});
   final String text;
   final TextAlign textAlign = TextAlign.center;
-  final Color color = AppColors.white.withOpacity(0.85);
+  final Color color = AppColors.white.withValues(alpha: 0.85);
   final FontWeight fontWeight = FontWeight.w500;
   final double letterSpacing = 0.3;
   @override
@@ -95,3 +95,4 @@ class LoginAndGoogleLoginButtonText extends StatelessWidget {
     );
   }
 }
+

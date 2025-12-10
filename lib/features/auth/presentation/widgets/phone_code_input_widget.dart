@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class PhoneCodeInputWidget extends StatelessWidget {
   PhoneCodeInputWidget({super.key});
-  final Color borderColor = AppColors.white.withOpacity(0.2);
+  final Color borderColor = AppColors.white.withValues(alpha: 0.2);
   final double borderWidth = 1.5;
 
   @override
@@ -30,7 +30,7 @@ class PhoneCodeInputWidget extends StatelessWidget {
   }
 
   BoxShadow _boxDecoration() {
-    final Color color = AppColors.black.withOpacity(0.1);
+    final Color color = AppColors.black.withValues(alpha: 0.1);
     final double blurRadius = 8;
     final Offset offset = const Offset(0, 4);
     return BoxShadow(color: color, blurRadius: blurRadius, offset: offset);
@@ -118,3 +118,4 @@ class _PhoneCodeInputItemWidgetState extends State<PhoneCodeInputItemWidget> {
     );
   }
 }
+

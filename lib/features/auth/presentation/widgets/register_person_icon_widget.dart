@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -13,7 +13,7 @@ class RegisterPersonIconWidget extends StatelessWidget {
 
   final double blurRadius;
   final double spreadRadius;
-  final Color color = AppColors.sliderBlue.withOpacity(0.3);
+  final Color color = AppColors.sliderBlue.withValues(alpha: 0.3);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,3 +37,4 @@ class RegisterPersonIconWidget extends StatelessWidget {
     );
   }
 }
+

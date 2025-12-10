@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
@@ -26,7 +26,7 @@ class CapturePreviewImageWidget extends StatelessWidget {
   BoxShadow _boxShadowMethod() {
     final double blurRadius = 10;
     final double spreadRadius = 2;
-    final Color color = AppColors.black.withOpacity(0.3);
+    final Color color = AppColors.black.withValues(alpha: 0.3);
     return BoxShadow(
       color: color,
       blurRadius: blurRadius,
@@ -34,3 +34,4 @@ class CapturePreviewImageWidget extends StatelessWidget {
     );
   }
 }
+

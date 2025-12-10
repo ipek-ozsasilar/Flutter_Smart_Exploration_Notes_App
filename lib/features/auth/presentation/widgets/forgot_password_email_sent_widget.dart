@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -13,9 +13,9 @@ class ForgotPasswordEmailSentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = AppColors.sliderGreen.withOpacity(0.2);
+    final Color color = AppColors.sliderGreen.withValues(alpha: 0.2);
     final double width = 2;
-    final Color borderColor = AppColors.sliderGreen.withOpacity(0.5);
+    final Color borderColor = AppColors.sliderGreen.withValues(alpha: 0.5);
     final double blurRadius = AppSizesRadius.button.value;
 
     return Container(
@@ -58,3 +58,4 @@ class ForgotPasswordEmailSentWidget extends StatelessWidget {
     );
   }
 }
+

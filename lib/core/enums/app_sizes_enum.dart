@@ -11,9 +11,9 @@ enum AppSizesEnum {
   notificationCardIconSize(40),
   notificationCardMessageSize(12);
 
-  final double value;
-
   const AppSizesEnum(this.value);
+
+  final double value;
 }
 
 /// Uygulama genelinde kullanılan standart border radius değerleri.
@@ -29,8 +29,9 @@ enum AppSizesRadius {
   chip(8),
   cameraPlaceholderIconSize(96);
 
-  final double value;
   const AppSizesRadius(this.value);
+
+  final double value;
 }
 
 enum AppSizesIcon {
@@ -45,8 +46,9 @@ enum AppSizesIcon {
   categoryCardIconContainerSize(56),
   categoryCardArrowIconSize(20);
 
-  final double value;
   const AppSizesIcon(this.value);
+
+  final double value;
 }
 
 enum AppSizesText {
@@ -56,6 +58,7 @@ enum AppSizesText {
   homeDiscoveriesValuesFontSize(22),
   headlineSmallFontSize(24);
 
-  final double value;
   const AppSizesText(this.value);
+
+  final double value;
 }

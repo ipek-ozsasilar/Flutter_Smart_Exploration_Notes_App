@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -17,7 +17,7 @@ class GeneralOutlinedIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       onPressed: () {
-        // Google ile giriş işlemi
+        // Google ile giriÅŸ iÅŸlemi
         Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
             builder: (BuildContext context) => const HomeView(),
@@ -35,7 +35,7 @@ class GeneralOutlinedIconButton extends StatelessWidget {
       ),
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        side: BorderSide(color: Colors.white.withOpacity(0.3), width: 1.5),
+        side: BorderSide(color: Colors.white.withValues(alpha: 0.3), width: 1.5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     );
@@ -61,7 +61,7 @@ class GeneralElevatedButton extends StatelessWidget {
     final LinearGradient buttonGradient =
         gradient ?? AppGradients.instance.loginSliderColorfulContainerGradient;
     final Color shadowColorValue =
-        shadowColor ?? AppColors.sliderBlue.withOpacity(0.4);
+        shadowColor ?? AppColors.sliderBlue.withValues(alpha: 0.4);
 
     return Container(
       decoration: BoxDecoration(
@@ -77,7 +77,7 @@ class GeneralElevatedButton extends StatelessWidget {
             if (onPressed != null) {
               onPressed!();
             } else {
-              // Default: Giriş işlemi
+              // Default: GiriÅŸ iÅŸlemi
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const HomeView(),
@@ -166,7 +166,7 @@ class FloatingActionButtonWidget extends StatelessWidget {
     final double blurRadius = 20;
     final double spreadRadius = 2;
     final Offset offset = const Offset(0, 8);
-    final Color color = AppColors.sliderBlue.withOpacity(0.5);
+    final Color color = AppColors.sliderBlue.withValues(alpha: 0.5);
     return BoxShadow(
       color: color,
       blurRadius: blurRadius,
@@ -219,10 +219,11 @@ class PhotoActionButton extends StatelessWidget {
       icon: IconWidget(icon: icon, color: foregroundColor ?? AppColors.white, size: AppSizesIcon.flagIconSize.value),
       label: Text(label),
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor ?? AppColors.white.withOpacity(0.2),
+        backgroundColor: backgroundColor ?? AppColors.white.withValues(alpha: 0.2),
         foregroundColor: foregroundColor ?? AppColors.white,
         padding: AppPaddings.bottomNavBarPadding,
       ),
     );
   }
 }
+

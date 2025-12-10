@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
@@ -18,7 +18,7 @@ class ForgotPasswordFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color shadowColor = AppColors.sliderOrange.withOpacity(0.4);
+    final Color shadowColor = AppColors.sliderOrange.withValues(alpha: 0.4);
     final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.stretch;
     return Column(
       crossAxisAlignment: crossAxisAlignment,
@@ -45,3 +45,4 @@ class ForgotPasswordFormWidget extends StatelessWidget {
     );
   }
 }
+

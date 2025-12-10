@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
@@ -35,18 +35,18 @@ class CategoryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
         gradient: _categoryOutLinearGradientMethod(),
         border: Border.all(
-          color: group.color.withOpacity(0.6),
+          color: group.color.withValues(alpha: 0.6),
           width: borderWidth,
         ),
         boxShadow: <BoxShadow>[_boxShadowMethod()],
       ),
-      child: _CategoryItemsMethod(context),
+      child: _categoryItems(context),
     );
   }
 
-  Row _CategoryItemsMethod(BuildContext context) {
+  Row _categoryItems(BuildContext context) {
     final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
-    final Color color = AppColors.white.withOpacity(0.8);
+    final Color color = AppColors.white.withValues(alpha: 0.8);
     final CrossAxisAlignment crossAxisAlignmentEnd = CrossAxisAlignment.end;
 
     return Row(
@@ -80,7 +80,7 @@ class CategoryCard extends StatelessWidget {
             Container(
               padding: AppPaddings.categoryCardCountPadding,
               decoration: BoxDecoration(
-                color: AppColors.black.withOpacity(0.4),
+                color: AppColors.black.withValues(alpha: 0.4),
                 borderRadius: BorderRadius.circular(AppSizesRadius.full.value),
               ),
               child: LabelMediumOpacityText(text: '${group.count} discoveries'),
@@ -104,8 +104,8 @@ class CategoryCard extends StatelessWidget {
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: <Color>[
-        group.color.withOpacity(0.22),
-        AppColors.black.withOpacity(0.5),
+        group.color.withValues(alpha: 0.22),
+        AppColors.black.withValues(alpha: 0.5),
       ],
     );
   }
@@ -114,7 +114,7 @@ class CategoryCard extends StatelessWidget {
     final double blurRadius = 22;
     final Offset offset = const Offset(0, 10);
     return BoxShadow(
-      color: group.color.withOpacity(0.45),
+      color: group.color.withValues(alpha: 0.45),
       blurRadius: blurRadius,
       offset: offset,
     );
@@ -126,8 +126,9 @@ class CategoryCard extends StatelessWidget {
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: <Color>[group.color, group.color.withOpacity(0.7)],
+        colors: <Color>[group.color, group.color.withValues(alpha: 0.7)],
       ),
     );
   }
 }
+

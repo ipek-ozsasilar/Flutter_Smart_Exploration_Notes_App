@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -9,7 +9,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 class LoginDoorWidget extends StatelessWidget {
   LoginDoorWidget({super.key});
   final double spreadRadius = 2;
-  final Color color = AppColors.sliderBlue.withOpacity(0.3);
+  final Color color = AppColors.sliderBlue.withValues(alpha: 0.3);
 
   @override
   Widget build(BuildContext context) {
@@ -36,3 +36,4 @@ class LoginDoorWidget extends StatelessWidget {
     );
   }
 }
+

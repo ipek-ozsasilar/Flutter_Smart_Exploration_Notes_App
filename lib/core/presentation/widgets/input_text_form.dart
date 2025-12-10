@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
@@ -40,9 +40,9 @@ class _InputTextFormState extends State<InputTextForm> {
   bool get _isPhoneField => widget.label == AppStringsEnum.phone.value;
 
   final bool filled = true;
-  final Color fillColor = AppColors.white.withOpacity(0.1);
-  final Color prefixIconColor = AppColors.sliderBlue.withOpacity(0.2);
-  final Color hintStyleColor = AppColors.white.withOpacity(0.4);
+  final Color fillColor = AppColors.white.withValues(alpha: 0.1);
+  final Color prefixIconColor = AppColors.sliderBlue.withValues(alpha: 0.2);
+  final Color hintStyleColor = AppColors.white.withValues(alpha: 0.4);
   final Color labelStyleColor = Colors.white70;
   final FontWeight errorStyleFontWeight = FontWeight.w600;
   final double focusedBorderWidth = 2;
@@ -122,7 +122,7 @@ class _InputTextFormState extends State<InputTextForm> {
   OutlineInputBorder _enableBorderMethod() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(AppSizesRadius.button.value),
-      borderSide: BorderSide(color: AppColors.white.withOpacity(0.2)),
+      borderSide: BorderSide(color: AppColors.white.withValues(alpha: 0.2)),
     );
   }
 
@@ -164,7 +164,7 @@ class _InputTextFormState extends State<InputTextForm> {
   }
 
   Widget? _suffixIconWidget() {
-    // Sadece password ve confirm password field'ları için visibility icon göster
+    // Sadece password ve confirm password field'larÄ± iÃ§in visibility icon gÃ¶ster
     if (_isPasswordField || _isConfirmPasswordField) {
       return GeneralIconButton(
         icon: _obscureText ? AppIcons.instance.visibility : AppIcons.instance.visibilityOff,
@@ -176,7 +176,8 @@ class _InputTextFormState extends State<InputTextForm> {
         color: Colors.white70,
       );
     }
-    // Diğer tüm field'lar için null döndür
+    // DiÄŸer tÃ¼m field'lar iÃ§in null dÃ¶ndÃ¼r
     return null;
   }
 }
+
