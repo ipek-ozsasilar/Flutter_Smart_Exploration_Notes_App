@@ -2,10 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
-import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 
 class CapturePreviewImageWidget extends StatelessWidget {
-  const CapturePreviewImageWidget({super.key, required this.image});
+  const CapturePreviewImageWidget({required this.image, super.key});
 
   final File image;
 

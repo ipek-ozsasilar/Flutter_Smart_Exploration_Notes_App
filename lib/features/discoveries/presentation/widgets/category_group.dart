@@ -21,7 +21,7 @@ class CategoryGroup {
 }
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({required this.group});
+  const CategoryCard({required this.group, super.key});
 
   final CategoryGroup group;
   final double borderWidth = 1.2;

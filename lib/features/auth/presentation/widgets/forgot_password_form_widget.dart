@@ -9,10 +9,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class ForgotPasswordFormWidget extends StatelessWidget {
   const ForgotPasswordFormWidget({
-    super.key,
-    required this.emailController,
-    required this.formKey,
-    required this.onSendPressed,
+    required this.emailController, required this.formKey, required this.onSendPressed, super.key,
   });
 
   final TextEditingController emailController;

@@ -3,7 +3,7 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class NormalText extends StatelessWidget {
-  const NormalText({super.key, required this.label, required this.fontWeight});
+  const NormalText({required this.label, required this.fontWeight, super.key});
 
   final String label;
   final FontWeight fontWeight;
@@ -18,7 +18,7 @@ class NormalText extends StatelessWidget {
 }
 
 class LabelMediumOpacityText extends StatelessWidget {
-  LabelMediumOpacityText({super.key, required this.text});
+  LabelMediumOpacityText({required this.text, super.key});
   final String text;
   final TextAlign textAlign = TextAlign.center;
   final Color color = AppColors.white.withOpacity(0.85);
@@ -39,7 +39,7 @@ class LabelMediumOpacityText extends StatelessWidget {
 }
 
 class HeadlineSmallText extends StatelessWidget {
-  HeadlineSmallText({super.key, required this.text, required this.fontSize});
+  const HeadlineSmallText({required this.text, required this.fontSize, super.key});
   final double fontSize;
   final double letterSpacing = 0.5;
   final TextAlign textAlign = TextAlign.center;
@@ -62,8 +62,7 @@ class HeadlineSmallText extends StatelessWidget {
 
 class BodyMediumText extends StatelessWidget {
   BodyMediumText({
-    super.key,
-    required this.text,
+    required this.text, super.key,
     this.textAlign = TextAlign.center,
   });
   final String text;
@@ -80,7 +79,7 @@ class BodyMediumText extends StatelessWidget {
 }
 
 class LoginAndGoogleLoginButtonText extends StatelessWidget {
-  const LoginAndGoogleLoginButtonText({super.key, required this.text});
+  const LoginAndGoogleLoginButtonText({required this.text, super.key});
   final String text;
   final double letterSpacing = 0.5;
   final FontWeight fontWeight = FontWeight.w700;

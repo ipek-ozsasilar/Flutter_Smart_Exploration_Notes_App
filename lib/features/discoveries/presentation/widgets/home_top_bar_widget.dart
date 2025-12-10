@@ -4,7 +4,7 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 class HomeTopBarWidget extends StatelessWidget {
-  const HomeTopBarWidget({super.key, required int discoveryCount})
+  const HomeTopBarWidget({required int discoveryCount, super.key})
     : _discoveryCount = discoveryCount;
 
   final int _discoveryCount;

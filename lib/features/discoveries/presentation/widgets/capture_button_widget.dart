@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
@@ -13,7 +12,7 @@ import 'package:smart_exploration_notes/service_locator/service_locator.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 
 class CapturePreviewWidget extends StatefulWidget {
-  const CapturePreviewWidget({super.key, required this.capturedImage});
+  const CapturePreviewWidget({required this.capturedImage, super.key});
   final File capturedImage;
 
   @override

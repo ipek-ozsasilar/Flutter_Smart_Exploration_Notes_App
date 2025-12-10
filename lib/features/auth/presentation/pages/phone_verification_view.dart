@@ -3,19 +3,17 @@ import 'package:smart_exploration_notes/core/presentation/widgets/gradient_backg
 import 'package:smart_exploration_notes/core/presentation/widgets/slider_colorful_container.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
-import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
-import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/phone_code_input_widget.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/code_repeat_row_widget.dart';
 import 'package:smart_exploration_notes/features/auth/presentation/widgets/phone_message_icon_widget.dart';
 
 /// Telefon doğrulama ekranı (SMS kodu ile)
 class PhoneVerificationView extends StatefulWidget {
-  const PhoneVerificationView({super.key, required this.phoneNumber});
+  const PhoneVerificationView({required this.phoneNumber, super.key});
 
   final String phoneNumber;
 
@@ -25,8 +23,8 @@ class PhoneVerificationView extends StatefulWidget {
 
 class _PhoneVerificationViewState extends State<PhoneVerificationView> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool _isResending = false;
-  int _countdown = 60;
+  final bool _isResending = false;
+  final int _countdown = 60;
   final bool top = false;
   final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.stretch;
 

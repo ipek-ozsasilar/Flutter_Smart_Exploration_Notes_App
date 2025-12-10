@@ -8,10 +8,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 /// Auth ve diğer ekranlarda kullanılan küçük bilgi kartı.
 class HeroStatCard extends StatelessWidget {
   HeroStatCard({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.icon,
+    required this.title, required this.subtitle, required this.icon, super.key,
     this.colors,
   });
 

@@ -10,7 +10,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 
 class GeneralOutlinedIconButton extends StatelessWidget {
-  const GeneralOutlinedIconButton({super.key, required this.text});
+  const GeneralOutlinedIconButton({required this.text, super.key});
   final String text;
 
   @override
@@ -44,9 +44,7 @@ class GeneralOutlinedIconButton extends StatelessWidget {
 
 class GeneralElevatedButton extends StatelessWidget {
   const GeneralElevatedButton({
-    super.key,
-    required this.text,
-    required GlobalKey<FormState> formKey,
+    required this.text, required GlobalKey<FormState> formKey, super.key,
     this.gradient,
     this.onPressed,
     this.shadowColor,
@@ -115,9 +113,7 @@ class GeneralElevatedButton extends StatelessWidget {
 
 class GeneralTextButton extends StatelessWidget {
   const GeneralTextButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
+    required this.text, required this.onPressed, super.key,
   });
 
   final String text;
@@ -182,10 +178,7 @@ class FloatingActionButtonWidget extends StatelessWidget {
 
 class GeneralIconButton extends StatefulWidget {
   const GeneralIconButton({
-    super.key,
-    required this.icon,
-    required this.onPressed,
-    required this.color,
+    required this.icon, required this.onPressed, required this.color, super.key,
   });
   final IconData icon;
   final VoidCallback onPressed;
@@ -208,10 +201,7 @@ class _GeneralIconButtonState extends State<GeneralIconButton> {
 /// Foto aksiyon butonu (tek tip)
 class PhotoActionButton extends StatelessWidget {
   const PhotoActionButton({
-    super.key,
-    required this.icon,
-    required this.label,
-    required this.onPressed,
+    required this.icon, required this.label, required this.onPressed, super.key,
     this.backgroundColor,
     this.foregroundColor,
   });

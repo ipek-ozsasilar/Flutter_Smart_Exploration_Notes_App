@@ -11,9 +11,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class InputTextForm extends StatefulWidget {
   const InputTextForm({
-    super.key,
-    required this.controller,
-    required this.label,
+    required this.controller, required this.label, super.key,
     this.validator,
     this.keyboardType,
     this.hintText,

@@ -4,8 +4,7 @@ import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 
 class DiscoveriesListBuilderWidget extends StatelessWidget {
   const DiscoveriesListBuilderWidget({
-    super.key,
-    required this.groups,
+    required this.groups, super.key,
   });
 
   final List<CategoryGroup> groups;

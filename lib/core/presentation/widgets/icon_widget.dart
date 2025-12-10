@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
   const IconWidget({
-    super.key,
-    required this.icon,
-    required this.color,
-    required this.size,
+    required this.icon, required this.color, required this.size, super.key,
   });
 
   final IconData icon;

@@ -4,13 +4,10 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
-import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class CodeRepeatSendRowWidget extends StatefulWidget {
   const CodeRepeatSendRowWidget({
-    super.key,
-    required this.isResending,
-    required this.countdown,
+    required this.isResending, required this.countdown, super.key,
   });
   final bool isResending;
   final int countdown;

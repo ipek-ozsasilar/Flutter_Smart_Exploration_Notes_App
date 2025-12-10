@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
@@ -7,7 +6,6 @@ import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/general_buttons.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/icon_widget.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/pages/map_view.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class HomeBottomCardWidget extends StatefulWidget {
@@ -19,7 +17,7 @@ class HomeBottomCardWidget extends StatefulWidget {
 
 class _HomeBottomCardWidgetState extends State<HomeBottomCardWidget> {
   // Geçici dummy değerler - ileride gerçek keşif verisi ile beslenecek
-  int _discoveryCount = 0;
+  final int _discoveryCount = 0;
   double _progress = 0.0;
   double _goalSliderValue =
       10; // kullanıcı hedef slider değeri (keşif) - min değer ile başlat

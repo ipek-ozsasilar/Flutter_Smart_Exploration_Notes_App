@@ -3,7 +3,7 @@ import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 
 class SliderColorfulContainer extends StatelessWidget {
-  const SliderColorfulContainer({super.key, required this.gradient});
+  const SliderColorfulContainer({required this.gradient, super.key});
   final LinearGradient gradient;
 
   @override

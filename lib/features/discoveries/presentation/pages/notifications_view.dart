@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/gradient_background.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
@@ -11,16 +10,10 @@ import 'package:smart_exploration_notes/features/discoveries/presentation/widget
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/bottom_nav_bar.dart';
-import 'package:smart_exploration_notes/features/discoveries/presentation/pages/capture_view.dart';
 import 'package:smart_exploration_notes/features/discoveries/presentation/widgets/icon_and_title_top_bar.dart.dart';
 
 /// Bildirim modeli (dummy data için)
 class NotificationItem {
-  final String id;
-  final String title;
-  final String message;
-  final DateTime date;
-  final bool isRead;
 
   NotificationItem({
     required this.id,
@@ -29,6 +22,11 @@ class NotificationItem {
     required this.date,
     this.isRead = false,
   });
+  final String id;
+  final String title;
+  final String message;
+  final DateTime date;
+  final bool isRead;
 }
 
 /// Bildirimler ekranı

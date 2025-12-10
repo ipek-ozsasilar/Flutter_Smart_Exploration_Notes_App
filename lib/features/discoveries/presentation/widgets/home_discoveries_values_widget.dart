@@ -3,14 +3,10 @@ import 'package:smart_exploration_notes/core/constants/app_paddings.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 import 'package:smart_exploration_notes/core/presentation/widgets/text_widget.dart';
-import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class HomeDiscoveriesValuesWidget extends StatelessWidget {
   const HomeDiscoveriesValuesWidget({
-    super.key,
-    required double progress,
-    required this.goalDiscovery,
-    required int discoveryCount,
+    required double progress, required this.goalDiscovery, required int discoveryCount, super.key,
   }) : _progress = progress,
        _discoveryCount = discoveryCount;
 

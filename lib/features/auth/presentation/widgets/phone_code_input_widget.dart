@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/gen/colors.gen.dart';
@@ -39,7 +38,7 @@ class PhoneCodeInputWidget extends StatelessWidget {
 }
 
 class PhoneCodeInputItemWidget extends StatefulWidget {
-  const PhoneCodeInputItemWidget({super.key, required this.index});
+  const PhoneCodeInputItemWidget({required this.index, super.key});
   final int index;
 
   @override

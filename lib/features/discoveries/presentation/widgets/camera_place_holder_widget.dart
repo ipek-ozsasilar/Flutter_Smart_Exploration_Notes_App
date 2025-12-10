@@ -11,7 +11,7 @@ import 'package:smart_exploration_notes/core/enums/app_sizes_enum.dart';
 import 'package:smart_exploration_notes/core/enums/app_strings_enum.dart';
 
 class CameraPlaceholderWidget extends StatefulWidget {
-  const CameraPlaceholderWidget({super.key, required this.onImagePicked});
+  const CameraPlaceholderWidget({required this.onImagePicked, super.key});
 
   /// Üst widget'a seçilen/çekilen resmi iletir
   final ValueChanged<File> onImagePicked;

@@ -8,9 +8,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 
 class RegisterPersonIconWidget extends StatelessWidget {
   RegisterPersonIconWidget({
-    super.key,
-    required this.blurRadius,
-    required this.spreadRadius,
+    required this.blurRadius, required this.spreadRadius, super.key,
   });
 
   final double blurRadius;

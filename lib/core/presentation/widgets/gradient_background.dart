@@ -6,7 +6,7 @@ import 'package:smart_exploration_notes/core/constants/app_gradients.dart';
 /// - Tüm ekranı doldurur (`BoxConstraints.expand`).
 /// - İsteğe bağlı `padding` ile içeriği içten boşluklu verebilirsin.
 class GradientBackground extends StatelessWidget {
-  const GradientBackground({super.key, required this.child, this.padding});
+  const GradientBackground({required this.child, super.key, this.padding});
 
   final Widget child;
   final EdgeInsetsGeometry? padding;

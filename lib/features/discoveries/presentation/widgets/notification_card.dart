@@ -8,7 +8,7 @@ import 'package:smart_exploration_notes/gen/colors.gen.dart';
 import 'package:smart_exploration_notes/core/constants/app_icons.dart';
 
 class NotificationCard extends StatelessWidget {
-  NotificationCard({super.key, required this.notification});
+  NotificationCard({required this.notification, super.key});
   final NotificationItem notification;
   final CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start;
   final Color color = AppColors.white.withOpacity(0.2);
